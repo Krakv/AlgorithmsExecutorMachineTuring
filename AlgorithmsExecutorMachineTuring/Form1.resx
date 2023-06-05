@@ -1463,7 +1463,7 @@
     <value>14</value>
   </data>
   <data name="StartBtn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 10.2pt</value>
+    <value>Microsoft Sans Serif, 14.25pt</value>
   </data>
   <data name="StartBtn.HelpKeyword" xml:space="preserve">
     <value>150</value>
@@ -1640,7 +1640,7 @@
     <value>False</value>
   </data>
   <data name="FinishBtn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 10.2pt</value>
+    <value>Microsoft Sans Serif, 14.25pt</value>
   </data>
   <data name="FinishBtn.HelpKeyword" xml:space="preserve">
     <value>150</value>
