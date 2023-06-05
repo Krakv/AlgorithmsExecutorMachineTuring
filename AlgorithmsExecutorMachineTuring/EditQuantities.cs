@@ -22,7 +22,7 @@ namespace AlgorithmTuringInterface
         private void EditQuantities_Shown(object sender, EventArgs e)
         {
             owner.Enabled = false; // Выключение формы-владельца
-            SymbolsTxtBx.Text = (from DataGridViewRow item in table.Rows 
+            SymbolsTxtBx.Text = (from DataGridViewRow item in table.Rows
                                  where item.HeaderCell.Value.ToString() != "_"
                                  select item.HeaderCell.Value.ToString())
                                  .ToArray().Aggregate((a, b) => a + b);
@@ -78,17 +78,17 @@ namespace AlgorithmTuringInterface
         private void SetStatesNumberBtn_Click(object sender, EventArgs e)
         {
             int index = Int32.Parse(StatesNumberTxtBx.Text.Trim());
-            if ( index > table.ColumnCount)
-                for(int i = table.ColumnCount + 1; i <= index; i++)
+            if (index > table.ColumnCount)
+                for (int i = table.ColumnCount + 1; i <= index; i++)
                 {
-                    DataGridViewTextBoxColumn column = new DataGridViewTextBoxColumn() { HeaderText = "Q" + i};
+                    DataGridViewTextBoxColumn column = new DataGridViewTextBoxColumn() { HeaderText = "Q" + i };
                     table.Columns.Add(column);
                 }
             else
             {
                 for (int i = table.ColumnCount; i > index; i--)
                 {
-                    table.Columns.RemoveAt(i-1);
+                    table.Columns.RemoveAt(i - 1);
                 }
             }
 

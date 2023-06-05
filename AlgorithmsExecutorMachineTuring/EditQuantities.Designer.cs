@@ -45,6 +45,7 @@ namespace AlgorithmTuringInterface
             // SaveRowsBtn
             // 
             SaveRowsBtn.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            SaveRowsBtn.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             SaveRowsBtn.Location = new Point(761, 634);
             SaveRowsBtn.Margin = new Padding(4, 3, 4, 3);
             SaveRowsBtn.Name = "SaveRowsBtn";
@@ -111,6 +112,7 @@ namespace AlgorithmTuringInterface
             // SetStatesNumberBtn
             // 
             SetStatesNumberBtn.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            SetStatesNumberBtn.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             SetStatesNumberBtn.Location = new Point(761, 674);
             SetStatesNumberBtn.Margin = new Padding(4, 3, 4, 3);
             SetStatesNumberBtn.Name = "SetStatesNumberBtn";
