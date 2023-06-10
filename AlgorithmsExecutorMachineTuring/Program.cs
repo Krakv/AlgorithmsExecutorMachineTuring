@@ -96,5 +96,11 @@ namespace AlgorithmTuringInterface
         {
             System.Windows.Forms.Help.ShowHelp(form, path, navigator);
         }
+
+        public static string ReadTask(string TaskName)
+        {
+            string filename = "Tasks\\" + TaskName + ".txt";
+            return File.ReadAllText(filename);
+        }
     }
 }

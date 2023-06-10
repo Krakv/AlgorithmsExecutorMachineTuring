@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static AlgorithmTuringInterface.Program;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
+using AlgorithmsExecutorMachineTuring;
 
 namespace AlgorithmTuringInterface
 {
@@ -636,5 +637,15 @@ namespace AlgorithmTuringInterface
 
         #endregion TableEdited
 
+        private void задачиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Tasks_Click(object sender, EventArgs e)
+        {
+            Form form = new Tasks();
+            form.Show();
+        }
     }
 }

@@ -1408,10 +1408,10 @@
   <data name="скоростьToolStripMenuItem.Text" xml:space="preserve">
     <value>Скорость</value>
   </data>
-  <data name="задачиToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="Tasks.Size" type="System.Drawing.Size, System.Drawing">
     <value>58, 20</value>
   </data>
-  <data name="задачиToolStripMenuItem.Text" xml:space="preserve">
+  <data name="Tasks.Text" xml:space="preserve">
     <value>Задачи</value>
   </data>
   <data name="UserGuideMenuItem.Size" type="System.Drawing.Size, System.Drawing">
@@ -1916,7 +1916,7 @@
     <value>True</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>MachineTuring</value>
+    <value>Исполнитель алгоритмов</value>
   </data>
   <data name="&gt;&gt;файлToolStripMenuItem.Name" xml:space="preserve">
     <value>файлToolStripMenuItem</value>
@@ -2062,10 +2062,10 @@
   <data name="&gt;&gt;ChangeSpeedBtn.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;задачиToolStripMenuItem.Name" xml:space="preserve">
-    <value>задачиToolStripMenuItem</value>
+  <data name="&gt;&gt;Tasks.Name" xml:space="preserve">
+    <value>Tasks</value>
   </data>
-  <data name="&gt;&gt;задачиToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;Tasks.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;помощьToolStripMenuItem.Name" xml:space="preserve">
