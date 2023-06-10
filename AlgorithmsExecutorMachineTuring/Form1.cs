@@ -521,6 +521,12 @@ namespace AlgorithmTuringInterface
             }
         }
 
+        private void Tasks_Click(object sender, EventArgs e)
+        {
+            Form form = new Tasks();
+            form.Show();
+        }
+
         #region other
 
         private void InitChosenIndexBtn_Click(object sender, EventArgs e)
@@ -637,15 +643,5 @@ namespace AlgorithmTuringInterface
 
         #endregion TableEdited
 
-        private void задачиToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Tasks_Click(object sender, EventArgs e)
-        {
-            Form form = new Tasks();
-            form.Show();
-        }
     }
 }
