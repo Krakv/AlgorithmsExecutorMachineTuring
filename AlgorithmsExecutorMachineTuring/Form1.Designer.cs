@@ -62,7 +62,7 @@ namespace AlgorithmTuringInterface
             menuStrip1 = new MenuStrip();
             файлToolStripMenuItem = new ToolStripMenuItem();
             SaveFileBtn = new ToolStripMenuItem();
-            загрузитьToolStripMenuItem = new ToolStripMenuItem();
+            UploadFileBtn = new ToolStripMenuItem();
             TapeMenuItem = new ToolStripMenuItem();
             TapeFile = new ToolStripMenuItem();
             CreateTapeFile = new ToolStripMenuItem();
@@ -328,7 +328,7 @@ namespace AlgorithmTuringInterface
             // 
             // файлToolStripMenuItem
             // 
-            файлToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { SaveFileBtn, загрузитьToolStripMenuItem });
+            файлToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { SaveFileBtn, UploadFileBtn });
             файлToolStripMenuItem.Name = "файлToolStripMenuItem";
             resources.ApplyResources(файлToolStripMenuItem, "файлToolStripMenuItem");
             // 
@@ -338,10 +338,11 @@ namespace AlgorithmTuringInterface
             resources.ApplyResources(SaveFileBtn, "SaveFileBtn");
             SaveFileBtn.Click += SaveFileBtn_Click;
             // 
-            // загрузитьToolStripMenuItem
+            // UploadFileBtn
             // 
-            загрузитьToolStripMenuItem.Name = "загрузитьToolStripMenuItem";
-            resources.ApplyResources(загрузитьToolStripMenuItem, "загрузитьToolStripMenuItem");
+            UploadFileBtn.Name = "UploadFileBtn";
+            resources.ApplyResources(UploadFileBtn, "UploadFileBtn");
+            UploadFileBtn.Click += UploadFileBtn_Click;
             // 
             // TapeMenuItem
             // 
@@ -696,7 +697,7 @@ namespace AlgorithmTuringInterface
         private ErrorProvider errorProvider1;
         private ToolStripMenuItem файлToolStripMenuItem;
         private ToolStripMenuItem SaveFileBtn;
-        private ToolStripMenuItem загрузитьToolStripMenuItem;
+        private ToolStripMenuItem UploadFileBtn;
         private ToolStripMenuItem TapeMenuItem;
         private ToolStripMenuItem TapeFile;
         private ToolStripMenuItem CreateTapeFile;

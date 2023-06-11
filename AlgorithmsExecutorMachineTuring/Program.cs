@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -56,6 +57,31 @@ namespace AlgorithmTuringInterface
                 }
             }
             return new object[2] { actions, quantity };
+        }
+
+        public static object[] ReadFile(string filename)
+        {
+            actions = new Dictionary<string, List<string>>();
+            tape = new Dictionary<long, string>();
+            string[] lines = File.ReadLines(filename, code).ToArray();
+            string[] keys = lines[0].Split(';');
+            string[] values = lines[1].Split(';');
+            for(int i = 0; i < keys.Length; i++)
+            {
+                if (keys[i] != "")
+                    tape.Add(Int64.Parse(keys[i]), values[i]);
+            }
+            int j = 3;
+            while (++j < lines.Length)
+            {
+                //for (int i = 0; i < lines[j].Length; i++)
+                //    lines[j] = lines[j].Replace(";;", ";");
+                string[] acts = lines[j].Split(";");
+                if (acts[0].Trim() == "")
+                    acts[0] = "_";
+                actions.Add(acts[0], acts.Skip(1).ToList());
+            }
+            return new object[] { actions, tape };
         }
 
         public static string FindPathManually()

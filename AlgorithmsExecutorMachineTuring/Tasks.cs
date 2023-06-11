@@ -14,9 +14,14 @@ namespace AlgorithmsExecutorMachineTuring
     public partial class Tasks : Form
     {
         string currentTask = "";
+        Dictionary<long, string> tape;
+        DataGridView table;
+        MachineTuring owner;
 
-        public Tasks()
+        public Tasks(ref DataGridView table, MachineTuring owner)
         {
+            this.owner = owner;
+            this.table = table;
             InitializeComponent();
         }
 
@@ -38,7 +43,23 @@ namespace AlgorithmsExecutorMachineTuring
         {
             if (currentTask != "")
             {
-
+                try
+                {
+                    Button btn = sender as Button;
+                    object[] objects = Program.ReadFile("Tasks\\" + currentTask + ".csv");
+                    Data.Actions = objects[0] as Dictionary<string, List<string>>;
+                    Data.tape = objects[1] as Dictionary<long, string>;
+                    owner.CreateTable(Data.Actions, ref table);
+                    QuantityStatesForm tablePanel = owner.QuantityStates.Controls[0] as QuantityStatesForm;
+                    tablePanel.ChangeTable(Data.Actions);
+                    owner.InitializeTape();
+                    MessageBox.Show("Успешно");
+                    this.Close();
+                }
+                catch
+                {
+                    MessageBox.Show("Задание не найдено.");
+                }
             }
         }
     }

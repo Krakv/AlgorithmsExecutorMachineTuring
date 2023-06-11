@@ -47,10 +47,11 @@ namespace AlgorithmTuringInterface
                 }
             }
             QuantitiesTable.Controls.Clear();
+            QuantitiesTable.Size = new Size(1, 1);
+            QuantitiesTable.AutoSize = true;
             QuantitiesTable.ColumnCount = (from item in actions.Values select item.Count).Max() + 1;
             QuantitiesTable.RowCount = actions.Count + 1;
             QuantitiesTable.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
-            QuantitiesTable.AutoSize = true;
             QuantitiesTable.Controls.Add(new Label() { Font = font, AutoSize = true }, 0, 0);
             for (int i = 0; i < QuantitiesTable.ColumnCount - 1; i++)
             {

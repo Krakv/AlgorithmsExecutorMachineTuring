@@ -15,7 +15,7 @@ namespace AlgorithmTuringInterface
         {
             InitializeComponent();
             this.owner = owner; // Добавление формы-владельца, которая инициировала запуск данной формы
-            this.table = table; // Передача таблицы DataGridVie
+            this.table = table; // Передача таблицы DataGridView
             Controls.Add(table); // Добавление таблицы в форму
         }
 
@@ -66,6 +66,7 @@ namespace AlgorithmTuringInterface
         {
             //SaveRowsBtn.Enabled = true;
         }
+
         private void SymbolsTxtBx_Validating(object sender, CancelEventArgs e)
         {
             SymbolsTxtBx.Text = new String(SymbolsTxtBx.Text.Where(c => Char.IsLetter(c) || Char.IsDigit(c)).Distinct().ToArray()); ;

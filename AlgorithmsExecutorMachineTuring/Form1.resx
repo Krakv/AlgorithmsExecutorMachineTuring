@@ -1273,10 +1273,10 @@
   <data name="SaveFileBtn.Text" xml:space="preserve">
     <value>Сохранить</value>
   </data>
-  <data name="загрузитьToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="UploadFileBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>133, 22</value>
   </data>
-  <data name="загрузитьToolStripMenuItem.Text" xml:space="preserve">
+  <data name="UploadFileBtn.Text" xml:space="preserve">
     <value>Загрузить</value>
   </data>
   <data name="файлToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
@@ -1930,10 +1930,10 @@
   <data name="&gt;&gt;SaveFileBtn.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;загрузитьToolStripMenuItem.Name" xml:space="preserve">
-    <value>загрузитьToolStripMenuItem</value>
+  <data name="&gt;&gt;UploadFileBtn.Name" xml:space="preserve">
+    <value>UploadFileBtn</value>
   </data>
-  <data name="&gt;&gt;загрузитьToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;UploadFileBtn.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;TapeMenuItem.Name" xml:space="preserve">

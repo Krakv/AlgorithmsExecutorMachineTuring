@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using static AlgorithmTuringInterface.Program;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 using AlgorithmsExecutorMachineTuring;
+using static System.Windows.Forms.Design.AxImporter;
 
 namespace AlgorithmTuringInterface
 {
@@ -33,7 +34,7 @@ namespace AlgorithmTuringInterface
             InitializeActions();
 
             // Создание таблицы состояний
-            table = InitializeTable(Data.quantities, Data.Actions, table);
+            table = InitializeTable(Data.Actions, table);
 
             // Сохранение таблицы в общем классе Data
             Data.table = table;
@@ -64,7 +65,7 @@ namespace AlgorithmTuringInterface
 
         #region Initializing
 
-        public DataGridView InitializeTable(string[] quantities, Dictionary<string, List<string>> actions, DataGridView table = null)
+        public DataGridView InitializeTable(Dictionary<string, List<string>> actions, DataGridView table = null)
         {
             if (table == null)
             {
@@ -80,23 +81,7 @@ namespace AlgorithmTuringInterface
                 table.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.table_RowAdded);
                 table.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.table_RowRemoved);
             }
-            // Adding first row (quantities)
-            for (int i = 0; i < quantities.Length; i++)
-            {
-                table.Columns.Add(new DataGridViewTextBoxColumn() { HeaderText = quantities[i] });
-            }
-            // Adding Rows (actions)
-            foreach (string key in actions.Keys)
-            {
-                DataGridViewCell[] array = new DataGridViewCell[actions[key].Count];
-                for (int i = 0; i < actions[key].Count; i++)
-                {
-                    array[i] = new DataGridViewTextBoxCell() { Value = actions[key][i] };
-                }
-                DataGridViewRow row = new DataGridViewRow() { HeaderCell = new DataGridViewRowHeaderCell() { Value = key } };
-                row.Cells.AddRange(array);
-                table.Rows.Add(row);
-            }
+            CreateTable(actions, ref table);
             table.Size = new Size(988, 600);
             table.Location = new Point(12, 12);
             table.Dock = DockStyle.None;
@@ -110,6 +95,31 @@ namespace AlgorithmTuringInterface
                 }
             table.Rows.Add(new DataGridViewRow() { HeaderCell = new DataGridViewRowHeaderCell() { Value = "_" } });
             return table;
+        }
+
+        public void CreateTable(Dictionary<string, List<string>> actions, ref DataGridView table)
+        {
+            isCreated = false;
+            table.Rows.Clear();
+            table.Columns.Clear();
+            // Adding first row (quantities)
+            for (int i = 1; i <= actions.Select(x => x.Value.Count).Max(); i++)
+            {
+                table.Columns.Add(new DataGridViewTextBoxColumn() { HeaderText = "Q" + i, SortMode = DataGridViewColumnSortMode.NotSortable });
+            }
+            // Adding Rows (actions)
+            foreach (string key in actions.Keys)
+            {
+                DataGridViewCell[] array = new DataGridViewCell[actions[key].Count];
+                for (int i = 0; i < actions[key].Count; i++)
+                {
+                    array[i] = new DataGridViewTextBoxCell() { Value = actions[key][i] };
+                }
+                DataGridViewRow row = new DataGridViewRow() { HeaderCell = new DataGridViewRowHeaderCell() { Value = key } };
+                row.Cells.AddRange(array);
+                table.Rows.Add(row);
+            }
+            isCreated = true;
         }
 
         private void InitializeActions()
@@ -266,6 +276,109 @@ namespace AlgorithmTuringInterface
 
         #region Upper Menu
 
+        private void SaveFileBtn_Click(object sender, EventArgs e)
+        {
+            Stream myStream;
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+
+            saveFileDialog1.Filter = "csv files (*.csv)|*.csv";
+            saveFileDialog1.FilterIndex = 2;
+            saveFileDialog1.RestoreDirectory = true;
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    myStream = saveFileDialog1.OpenFile();
+                }
+                catch
+                {
+                    MessageBox.Show("Файл используется другим процессом.");
+                    return;
+                }
+                if (myStream != null)
+                {
+                    using (StreamWriter writer = new StreamWriter(myStream))
+                    {
+                        if (Data.tape.Keys.Count == 0)
+                        {
+                            MessageBox.Show("Лента пустая.");
+                        }
+                        else
+                        {
+                            long[] keys = new long[Data.tape.Count];
+                            long counter = 0;
+                            foreach (long index in Data.tape.Keys)
+                            {
+                                keys[counter++] = index;
+                            }
+                            Array.Sort(keys);
+                            for (long i = keys[0]; i <= keys[keys.Length - 1]; i++)
+                            {
+                                writer.Write(i);
+                                writer.Write(';');
+                            }
+                            writer.WriteLine();
+                            for (long i = keys[0]; i <= keys[keys.Length - 1]; i++)
+                            {
+                                try
+                                {
+                                    writer.Write(Data.tape[i]);
+                                }
+                                catch
+                                {
+                                }
+                                writer.Write(';');
+                            }
+                        }
+                        writer.WriteLine();
+                        writer.WriteLine();
+                        writer.Write(' ');
+                        int length = (from item in Data.Actions.Values
+                                      select item.Count())
+                                      .Max();
+                        for (int i = 1; i <= length; i++)
+                        {
+                            writer.Write(';');
+                            writer.Write("Q" + i);
+                        }
+                        writer.WriteLine();
+                        foreach (string str in Data.Actions.Keys)
+                        {
+                            writer.Write(str.Replace("_", " "));
+                            foreach (string action in Data.Actions[str])
+                            {
+                                writer.Write(';');
+                                writer.Write(action);
+                            }
+                            writer.WriteLine();
+                        }
+                    }
+                    myStream.Close();
+                }
+            }
+        }
+
+        private void UploadFileBtn_Click(object sender, EventArgs e)
+        {
+            string path = FindPathManually();
+            try
+            {
+                Object[] objects = Program.ReadFile(path);
+                Data.Actions = objects[0] as Dictionary<string, List<string>>;
+                Data.tape = objects[1] as Dictionary<long, string>;
+                CreateTable(Data.Actions, ref table);
+                QuantityStatesForm tablePanel = QuantityStates.Controls[0] as QuantityStatesForm;
+                tablePanel.ChangeTable(Data.Actions);
+                InitializeTape();
+                MessageBox.Show("Успешно");
+            }
+            catch
+            {
+                MessageBox.Show("Не удалось");
+            }
+        }
+
         #region TapeFile
 
         private void OpenTapeFile_Click(object sender, EventArgs e)
@@ -390,7 +503,7 @@ namespace AlgorithmTuringInterface
             Dictionary<string, List<string>> actions = new Dictionary<string, List<string>>();
             actions.Add("_", new List<string>() { " " });
             isCreated = false;
-            EditQuantities editQuantities = new EditQuantities(this, InitializeTable(new string[1] { "Q1" }, actions));
+            EditQuantities editQuantities = new EditQuantities(this, InitializeTable(actions));
             isCreated = true;
             editQuantities.Show();
         }
@@ -438,96 +551,13 @@ namespace AlgorithmTuringInterface
 
         #endregion QuantitiesFile
 
-        private void SaveFileBtn_Click(object sender, EventArgs e)
-        {
-            Stream myStream;
-            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-
-            saveFileDialog1.Filter = "csv files (*.csv)|*.csv";
-            saveFileDialog1.FilterIndex = 2;
-            saveFileDialog1.RestoreDirectory = true;
-
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                try
-                {
-                    myStream = saveFileDialog1.OpenFile();
-                }
-                catch
-                {
-                    MessageBox.Show("Файл используется другим процессом.");
-                    return;
-                }
-                if (myStream != null)
-                {
-                    using (StreamWriter writer = new StreamWriter(myStream))
-                    {
-                        if (Data.tape.Keys.Count == 0)
-                        {
-                            MessageBox.Show("Лента пустая.");
-                        }
-                        else
-                        {
-                            long[] keys = new long[Data.tape.Count];
-                            long counter = 0;
-                            foreach (long index in Data.tape.Keys)
-                            {
-                                keys[counter++] = index;
-                            }
-                            Array.Sort(keys);
-                            for (long i = keys[0]; i <= keys[keys.Length - 1]; i++)
-                            {
-                                writer.Write(i);
-                                writer.Write(';');
-                            }
-                            writer.WriteLine();
-                            for (long i = keys[0]; i <= keys[keys.Length - 1]; i++)
-                            {
-                                try
-                                {
-                                    writer.Write(Data.tape[i]);
-                                }
-                                catch
-                                {
-                                }
-                                writer.Write(';');
-                            }
-                        }
-                        writer.WriteLine();
-                        writer.WriteLine();
-                        writer.Write(' ');
-                        int length = (from item in Data.Actions.Values
-                                      select item.Count())
-                                      .Max();
-                        for (int i = 1; i <= length; i++)
-                        {
-                            writer.Write(';');
-                            writer.Write("Q" + i);
-                        }
-                        writer.WriteLine();
-                        foreach (string str in Data.Actions.Keys)
-                        {
-                            writer.Write(str);
-                            foreach (string action in Data.Actions[str])
-                            {
-                                writer.Write(';');
-                                writer.Write(action);
-                            }
-                            writer.WriteLine();
-                        }
-                    }
-                    myStream.Close();
-                }
-            }
-        }
+        #region other
 
         private void Tasks_Click(object sender, EventArgs e)
         {
-            Form form = new Tasks();
+            Form form = new Tasks(ref table, this);
             form.Show();
         }
-
-        #region other
 
         private void InitChosenIndexBtn_Click(object sender, EventArgs e)
         {
