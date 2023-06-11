@@ -23,6 +23,7 @@ namespace AlgorithmTuringInterface
         DataGridView table;
         long shift = 0;
         long chosenIndex = 0;
+        int state = 1;
         long speed;
         bool isCreated = false;
 
@@ -146,6 +147,8 @@ namespace AlgorithmTuringInterface
                 else
                     PrintTapeElement(textbox, shift);
             }
+            QuantityStatesForm tablePanel = QuantityStates.Controls[0] as QuantityStatesForm;
+            tablePanel.MarkCell();
         }
 
         private void PrintIndex(TextBox box, long shift)
@@ -175,7 +178,7 @@ namespace AlgorithmTuringInterface
         public void PaintQuantitiesStatesForm()
         {
             this.QuantityStates.Controls.Clear();
-            QuantityStatesForm frm = new QuantityStatesForm(Data.Actions) { BackColor = Color.White, TopLevel = false, Dock = DockStyle.Fill, TopMost = true };
+            QuantityStatesForm frm = new QuantityStatesForm(Data.Actions, ref chosenIndex, ref state) { BackColor = Color.White, TopLevel = false, Dock = DockStyle.Fill, TopMost = true };
             this.QuantityStates.Controls.Add(frm);
             frm.Show();
         }
@@ -581,7 +584,7 @@ namespace AlgorithmTuringInterface
 
         private void OpenQuantitiesTableBtn_Click(object sender, EventArgs e)
         {
-            QuantityStatesForm frm = new QuantityStatesForm(Data.Actions) { FormBorderStyle = FormBorderStyle.Sizable };
+            QuantityStatesForm frm = new QuantityStatesForm(Data.Actions, ref chosenIndex, ref state) { FormBorderStyle = FormBorderStyle.Sizable };
             frm.Show();
         }
 
@@ -612,7 +615,31 @@ namespace AlgorithmTuringInterface
 
         public void Table_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            Data.Actions[table.Rows[e.RowIndex].HeaderCell.Value.ToString()][e.ColumnIndex] = table[e.ColumnIndex, e.RowIndex].Value.ToString();
+            Regex regex = new Regex(@"\A[\w_]?[><=]Q\d+\z");
+            string? text = table[e.ColumnIndex, e.RowIndex].Value?.ToString();
+            if (text == null)
+            {
+                Data.Actions[table.Rows[e.RowIndex].HeaderCell.Value.ToString()][e.ColumnIndex] = "";
+                return;
+            }
+            if (regex.IsMatch(text))
+            {
+                table[e.ColumnIndex, e.RowIndex].Style.BackColor = Color.White;
+                Data.Actions[table.Rows[e.RowIndex].HeaderCell.Value.ToString()][e.ColumnIndex] = table[e.ColumnIndex, e.RowIndex].Value.ToString();
+            }
+            else
+            {
+                table[e.ColumnIndex, e.RowIndex].Style.BackColor = Color.IndianRed;
+                if (new Regex(@"\A\W[><=]").IsMatch(text))
+                    MessageBox.Show("Символ алфавита перед символом перемещения (><=) не должен быть знаком\n" +
+                        "Пример: (*Символ*>Q1)");
+                if (!new Regex(@"[><=]").IsMatch(text))
+                    MessageBox.Show("Ячейка должна содержать символ перемещения (><=)\n" +
+                        "Пример: (*Символ*>Q1)");
+                if (!new Regex(@"Q\d+").IsMatch(text))
+                    MessageBox.Show("Ячейка должна содержать символ состояния (Q) и его номер\n" +
+                        "Пример: (*Символ*>Q12)");
+            }
             //    QuantityStatesForm tablePanel = QuantityStates.Controls[0] as QuantityStatesForm;
             //    tablePanel.ChangeTableElement(table[e.ColumnIndex, e.RowIndex].Value.ToString(), (e.RowIndex + 1) * (table.ColumnCount + 1)  + e.ColumnIndex + 1);
         }
