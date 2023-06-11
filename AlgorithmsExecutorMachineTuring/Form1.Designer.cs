@@ -87,7 +87,7 @@ namespace AlgorithmTuringInterface
             Tasks = new ToolStripMenuItem();
             помощьToolStripMenuItem = new ToolStripMenuItem();
             UserGuideMenuItem = new ToolStripMenuItem();
-            оПрограммеToolStripMenuItem = new ToolStripMenuItem();
+            AboutProgramBtn = new ToolStripMenuItem();
             StartBtn = new Button();
             NextStepBtn = new Button();
             PreviousStepBtn = new Button();
@@ -321,7 +321,7 @@ namespace AlgorithmTuringInterface
             helpProvider1.SetHelpKeyword(menuStrip1, resources.GetString("menuStrip1.HelpKeyword"));
             helpProvider1.SetHelpNavigator(menuStrip1, (HelpNavigator)resources.GetObject("menuStrip1.HelpNavigator"));
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { файлToolStripMenuItem, TapeMenuItem, QuantitiesMenuItem, скоростьToolStripMenuItem, Tasks, помощьToolStripMenuItem, оПрограммеToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { файлToolStripMenuItem, TapeMenuItem, QuantitiesMenuItem, скоростьToolStripMenuItem, Tasks, помощьToolStripMenuItem, AboutProgramBtn });
             resources.ApplyResources(menuStrip1, "menuStrip1");
             menuStrip1.Name = "menuStrip1";
             helpProvider1.SetShowHelp(menuStrip1, (bool)resources.GetObject("menuStrip1.ShowHelp"));
@@ -483,10 +483,11 @@ namespace AlgorithmTuringInterface
             resources.ApplyResources(UserGuideMenuItem, "UserGuideMenuItem");
             UserGuideMenuItem.Click += UserGuideMenuItem_Click;
             // 
-            // оПрограммеToolStripMenuItem
+            // AboutProgramBtn
             // 
-            оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
-            resources.ApplyResources(оПрограммеToolStripMenuItem, "оПрограммеToolStripMenuItem");
+            AboutProgramBtn.Name = "AboutProgramBtn";
+            resources.ApplyResources(AboutProgramBtn, "AboutProgramBtn");
+            AboutProgramBtn.Click += AboutProgramBtn_Click;
             // 
             // StartBtn
             // 
@@ -721,7 +722,7 @@ namespace AlgorithmTuringInterface
         private Button EditTapeFileBtn;
         private ToolStripMenuItem Tasks;
         private ToolStripMenuItem OpenQuantitiesTableBtn;
-        private ToolStripMenuItem оПрограммеToolStripMenuItem;
+        private ToolStripMenuItem AboutProgramBtn;
         private ToolStripMenuItem CurrentSpeedTxtBx;
         private ToolStripMenuItem SpeedTxtBx;
         private ToolStripMenuItem UserGuideMenuItem;

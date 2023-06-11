@@ -364,12 +364,12 @@ namespace AlgorithmTuringInterface
             string path = FindPathManually();
             try
             {
-                Object[] objects = Program.ReadFile(path);
+                var objects = Program.ReadFile(path);
                 Data.Actions = objects[0] as Dictionary<string, List<string>>;
                 Data.tape = objects[1] as Dictionary<long, string>;
                 CreateTable(Data.Actions, ref table);
-                QuantityStatesForm tablePanel = QuantityStates.Controls[0] as QuantityStatesForm;
-                tablePanel.ChangeTable(Data.Actions);
+                QuantityStatesForm? tablePanel = QuantityStates.Controls[0] as QuantityStatesForm;
+                tablePanel?.ChangeTable(Data.Actions);
                 InitializeTape();
                 MessageBox.Show("Успешно");
             }
@@ -553,6 +553,12 @@ namespace AlgorithmTuringInterface
 
         #region other
 
+        private void AboutProgramBtn_Click(object sender, EventArgs e)
+        {
+            Form form = new AboutProgram();
+            form.Show();
+        }
+
         private void Tasks_Click(object sender, EventArgs e)
         {
             Form form = new Tasks(ref table, this);
@@ -672,6 +678,5 @@ namespace AlgorithmTuringInterface
         }
 
         #endregion TableEdited
-
     }
 }
