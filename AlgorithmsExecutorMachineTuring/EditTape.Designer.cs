@@ -464,6 +464,7 @@
             // 
             // button1
             // 
+            button1.BackgroundImage = AlgorithmsExecutorMachineTuring.Properties.Resources._109164;
             button1.BackgroundImageLayout = ImageLayout.Stretch;
             button1.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
             helpProvider1.SetHelpKeyword(button1, "23");

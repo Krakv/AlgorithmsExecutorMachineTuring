@@ -101,7 +101,7 @@
             Task8.Size = new Size(260, 52);
             Task8.TabIndex = 7;
             Task8.Tag = "8";
-            Task8.Text = "button1";
+            Task8.Text = "Удаление вхождений";
             Task8.UseVisualStyleBackColor = true;
             Task8.Click += Task_Click;
             // 
@@ -114,7 +114,7 @@
             Task7.Size = new Size(260, 50);
             Task7.TabIndex = 6;
             Task7.Tag = "7";
-            Task7.Text = "button1";
+            Task7.Text = "Увеличение шестнадцатиричного числа";
             Task7.UseVisualStyleBackColor = true;
             Task7.Click += Task_Click;
             // 
@@ -127,7 +127,7 @@
             Task6.Size = new Size(260, 50);
             Task6.TabIndex = 5;
             Task6.Tag = "6";
-            Task6.Text = "button1";
+            Task6.Text = "Вставка второго символа";
             Task6.UseVisualStyleBackColor = true;
             Task6.Click += Task_Click;
             // 
@@ -140,7 +140,7 @@
             Task5.Size = new Size(260, 50);
             Task5.TabIndex = 4;
             Task5.Tag = "5";
-            Task5.Text = "button1";
+            Task5.Text = "Удаление второго символа";
             Task5.UseVisualStyleBackColor = true;
             Task5.Click += Task_Click;
             // 
@@ -153,7 +153,7 @@
             Task4.Size = new Size(260, 50);
             Task4.TabIndex = 3;
             Task4.Tag = "4";
-            Task4.Text = "button1";
+            Task4.Text = "Перемещение символа";
             Task4.UseVisualStyleBackColor = true;
             Task4.Click += Task_Click;
             // 
@@ -166,7 +166,7 @@
             Task3.Size = new Size(260, 50);
             Task3.TabIndex = 2;
             Task3.Tag = "3";
-            Task3.Text = "button1";
+            Task3.Text = "Увеличение десятичного числа";
             Task3.UseVisualStyleBackColor = true;
             Task3.Click += Task_Click;
             // 
@@ -179,7 +179,7 @@
             Task2.Size = new Size(260, 50);
             Task2.TabIndex = 1;
             Task2.Tag = "2";
-            Task2.Text = "button1";
+            Task2.Text = "Извлечение цифр";
             Task2.UseVisualStyleBackColor = true;
             Task2.Click += Task_Click;
             // 

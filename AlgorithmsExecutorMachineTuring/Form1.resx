@@ -1124,7 +1124,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Tape.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>15</value>
   </data>
   <data name="Tape.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="textBox12" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="textBox16" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="textBox17" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="textBox15" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="textBox13" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="textBox14" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="textBox21" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="textBox2" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="textBox22" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="textBox20" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="textBox18" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="textBox19" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="textBox4" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="textBox5" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="textBox6" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="textBox1" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="textBox3" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="textBox10" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="textBox11" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="textBox9" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="textBox7" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="textBox8" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,9,090908,Percent,9,090908,Percent,9,090908,Percent,9,090908,Percent,9,090908,Percent,9,090908,Percent,9,090908,Percent,9,090908,Percent,9,090908,Percent,9,090908,Percent,9,090908" /&gt;&lt;Rows Styles="Percent,42,Percent,58" /&gt;&lt;/TableLayoutSettings&gt;</value>
@@ -1175,7 +1175,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;TapeLabel.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>12</value>
   </data>
   <data name="QuantityLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1223,7 +1223,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;QuantityLabel.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>11</value>
   </data>
   <data name="QuantityStates.HelpKeyword" xml:space="preserve">
     <value>91</value>
@@ -1256,7 +1256,79 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;QuantityStates.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>10</value>
+  </data>
+  <data name="CloseTaskBoxBtn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9.75pt</value>
+  </data>
+  <data name="CloseTaskBoxBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="CloseTaskBoxBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>885, 545</value>
+  </data>
+  <data name="CloseTaskBoxBtn.ShowHelp" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="CloseTaskBoxBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>25, 25</value>
+  </data>
+  <data name="CloseTaskBoxBtn.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="CloseTaskBoxBtn.Text" xml:space="preserve">
+    <value>X</value>
+  </data>
+  <data name="CloseTaskBoxBtn.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="CloseTaskBoxBtn.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;CloseTaskBoxBtn.Name" xml:space="preserve">
+    <value>CloseTaskBoxBtn</value>
+  </data>
+  <data name="&gt;&gt;CloseTaskBoxBtn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CloseTaskBoxBtn.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;CloseTaskBoxBtn.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="TaskBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt</value>
+  </data>
+  <data name="TaskBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 540</value>
+  </data>
+  <data name="TaskBox.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="TaskBox.ShowHelp" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="TaskBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>900, 95</value>
+  </data>
+  <data name="TaskBox.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="TaskBox.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;TaskBox.Name" xml:space="preserve">
+    <value>TaskBox</value>
+  </data>
+  <data name="&gt;&gt;TaskBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TaskBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;TaskBox.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -1460,7 +1532,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>16</value>
   </data>
   <data name="StartBtn.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 14.25pt</value>
@@ -1502,7 +1574,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;StartBtn.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>9</value>
   </data>
   <data name="NextStepBtn.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -1547,7 +1619,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;NextStepBtn.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>8</value>
   </data>
   <data name="PreviousStepBtn.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -1592,7 +1664,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;PreviousStepBtn.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>7</value>
   </data>
   <data name="StartNFinishBtn.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 10.2pt</value>
@@ -1634,7 +1706,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;StartNFinishBtn.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
   <data name="FinishBtn.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -1679,7 +1751,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;FinishBtn.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <metadata name="errorProvider1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>152, 17</value>
@@ -1736,7 +1808,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;EditTapeFileBtn.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="EditQuantitiesFileBtn.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
@@ -1775,7 +1847,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;EditQuantitiesFileBtn.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="button1.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
@@ -1817,7 +1889,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="PreviousElement.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
@@ -1859,7 +1931,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;PreviousElement.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>13</value>
   </data>
   <data name="NextElement.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
@@ -1901,7 +1973,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;NextElement.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>14</value>
   </data>
   <data name="$this.HelpKeyword" xml:space="preserve">
     <value>91</value>

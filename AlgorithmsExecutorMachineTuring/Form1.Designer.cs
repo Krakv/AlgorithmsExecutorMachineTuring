@@ -59,6 +59,8 @@ namespace AlgorithmTuringInterface
             TapeLabel = new Label();
             QuantityLabel = new Label();
             QuantityStates = new Panel();
+            CloseTaskBoxBtn = new Button();
+            TaskBox = new TextBox();
             menuStrip1 = new MenuStrip();
             файлToolStripMenuItem = new ToolStripMenuItem();
             SaveFileBtn = new ToolStripMenuItem();
@@ -315,6 +317,22 @@ namespace AlgorithmTuringInterface
             resources.ApplyResources(QuantityStates, "QuantityStates");
             QuantityStates.Name = "QuantityStates";
             helpProvider1.SetShowHelp(QuantityStates, (bool)resources.GetObject("QuantityStates.ShowHelp"));
+            // 
+            // CloseTaskBoxBtn
+            // 
+            resources.ApplyResources(CloseTaskBoxBtn, "CloseTaskBoxBtn");
+            CloseTaskBoxBtn.Name = "CloseTaskBoxBtn";
+            helpProvider1.SetShowHelp(CloseTaskBoxBtn, (bool)resources.GetObject("CloseTaskBoxBtn.ShowHelp"));
+            CloseTaskBoxBtn.UseVisualStyleBackColor = true;
+            CloseTaskBoxBtn.Click += CloseTaskBoxBtn_Click;
+            // 
+            // TaskBox
+            // 
+            TaskBox.BackColor = SystemColors.ControlLightLight;
+            resources.ApplyResources(TaskBox, "TaskBox");
+            TaskBox.Name = "TaskBox";
+            TaskBox.ReadOnly = true;
+            helpProvider1.SetShowHelp(TaskBox, (bool)resources.GetObject("TaskBox.ShowHelp"));
             // 
             // menuStrip1
             // 
@@ -622,7 +640,9 @@ namespace AlgorithmTuringInterface
             AutoScaleMode = AutoScaleMode.Font;
             AutoValidate = AutoValidate.EnablePreventFocusChange;
             BackColor = SystemColors.Window;
+            Controls.Add(CloseTaskBoxBtn);
             Controls.Add(EditTapeFileBtn);
+            Controls.Add(TaskBox);
             Controls.Add(EditQuantitiesFileBtn);
             Controls.Add(button1);
             Controls.Add(FinishBtn);
@@ -727,6 +747,8 @@ namespace AlgorithmTuringInterface
         private ToolStripMenuItem SpeedTxtBx;
         private ToolStripMenuItem UserGuideMenuItem;
         private HelpProvider helpProvider1;
+        public Button CloseTaskBoxBtn;
+        public TextBox TaskBox;
     }
 }
 

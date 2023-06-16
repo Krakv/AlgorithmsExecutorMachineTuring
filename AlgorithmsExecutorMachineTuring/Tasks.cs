@@ -53,6 +53,10 @@ namespace AlgorithmsExecutorMachineTuring
                     QuantityStatesForm tablePanel = owner.QuantityStates.Controls[0] as QuantityStatesForm;
                     tablePanel.ChangeTable(Data.Actions);
                     owner.InitializeTape();
+                    owner.QuantityStates.Size = new Size(900, 223);
+                    owner.TaskBox.Visible = true;
+                    owner.TaskBox.Text = TaskText.Text;
+                    owner.CloseTaskBoxBtn.Visible = true;
                     MessageBox.Show("Успешно");
                     this.Close();
                 }

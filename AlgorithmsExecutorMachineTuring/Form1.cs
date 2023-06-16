@@ -705,5 +705,13 @@ namespace AlgorithmTuringInterface
         }
 
         #endregion TableEdited
+
+        private void CloseTaskBoxBtn_Click(object sender, EventArgs e)
+        {
+            QuantityStates.Size = new Size(900, 323);
+            TaskBox.Visible = false;
+            TaskBox.Text = "";
+            CloseTaskBoxBtn.Visible = false;
+        }
     }
 }
