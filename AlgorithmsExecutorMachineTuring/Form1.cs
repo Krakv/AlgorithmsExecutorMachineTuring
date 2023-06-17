@@ -14,6 +14,8 @@ using static AlgorithmTuringInterface.Program;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 using AlgorithmsExecutorMachineTuring;
 using static System.Windows.Forms.Design.AxImporter;
+using AlgorithmExecutor;
+using System.Web;
 
 namespace AlgorithmTuringInterface
 {
@@ -26,6 +28,7 @@ namespace AlgorithmTuringInterface
         int state = 1;
         long speed;
         bool isCreated = false;
+        AlgorithmExecutor.AlgorithmExecutor executor;
 
         public MachineTuring()
         {
@@ -45,6 +48,17 @@ namespace AlgorithmTuringInterface
 
             // Инициализация индексов названий строк (Для удаления строк)
             Data.InitializeKeysIndexes();
+
+            string symbol;
+            try
+            {
+                symbol = Data.tape[chosenIndex];
+            }
+            catch
+            {
+                symbol = "_";
+            }
+            this.executor = new AlgorithmExecutor.AlgorithmExecutor(Data.Actions, symbol, state);
 
             // флажок, указывающий, что объект не находится в процессе инициализации
             isCreated = true;
@@ -127,7 +141,7 @@ namespace AlgorithmTuringInterface
         {
             try
             {
-                Data.Actions.Add("", new List<string> { "<Q2", ">finish" });
+                Data.Actions.Add("", new List<string> { "<Q2", "" });
                 Data.Actions.Add("0", new List<string> { "1>Q1", "<Q2" });
                 Data.Actions.Add("1", new List<string> { "0>Q1", "<Q2" });
             }
@@ -147,8 +161,8 @@ namespace AlgorithmTuringInterface
                 else
                     PrintTapeElement(textbox, shift);
             }
-            QuantityStatesForm tablePanel = QuantityStates.Controls[0] as QuantityStatesForm;
-            tablePanel.MarkCell();
+            QuantityStatesForm tablePanel = (QuantityStatesForm)QuantityStates.Controls[0];
+            tablePanel.MarkCell(state);
         }
 
         private void PrintIndex(TextBox box, long shift)
@@ -273,6 +287,18 @@ namespace AlgorithmTuringInterface
             FinishBtn.Enabled = false;
             StartBtn.Enabled = true;
             InitChosenIndexBtn.Enabled = true;
+        }
+
+        private void NextStepBtn_Click(object sender, EventArgs e)
+        {
+            string symbol;
+            int shift;
+            executor.NextStep(out symbol, out this.state, out shift);
+            tape[chosenIndex] = symbol.Replace("_", "");
+            chosenIndex += shift;
+            InitializeTape();
+            QuantityStatesForm tablePanel = (QuantityStatesForm)QuantityStates.Controls[0];
+            tablePanel.MarkCell(this.state);
         }
 
         #endregion Buttons
@@ -713,5 +739,6 @@ namespace AlgorithmTuringInterface
             TaskBox.Text = "";
             CloseTaskBoxBtn.Visible = false;
         }
+
     }
 }

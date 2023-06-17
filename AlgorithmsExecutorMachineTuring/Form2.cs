@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Metrics;
 using System.Drawing;
 using System.Drawing.Configuration;
 using System.Linq;
@@ -29,9 +30,10 @@ namespace AlgorithmTuringInterface
             MakeQuantitiesTable();
         }
 
-        public void MarkCell()
+        public void MarkCell(int state)
         {
             bool isContain = Data.tape.ContainsKey(symbolIndex);
+            int counter = 0;
             foreach (Label cell in QuantitiesTable.Controls)
             {
                 if (cell.ForeColor == Color.Crimson)
@@ -40,9 +42,10 @@ namespace AlgorithmTuringInterface
             foreach (Label cell in QuantitiesTable.Controls)
             {
                 if (!isContain && cell.Text == "_")
-                    QuantitiesTable.Controls[cell.TabIndex + state].ForeColor = Color.Crimson;
-                else if (isContain && cell.Text == Data.tape[symbolIndex])
-                    QuantitiesTable.Controls[cell.TabIndex + state].ForeColor = Color.Crimson;
+                    QuantitiesTable.Controls[counter + state].ForeColor = Color.Crimson;
+                if (isContain && cell.Text == Data.tape[symbolIndex])
+                    QuantitiesTable.Controls[counter + state].ForeColor = Color.Crimson;
+                counter++;
             }
         }
         
@@ -99,7 +102,7 @@ namespace AlgorithmTuringInterface
                 }
             }
             this.Controls.Add(QuantitiesTable);
-            MarkCell();
+            MarkCell(state);
         }
     }
 }
