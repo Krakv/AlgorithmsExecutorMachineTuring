@@ -45,7 +45,7 @@ namespace AlgorithmTuringInterface
             var syms = from DataGridViewRow item in table.Rows select item.HeaderCell.Value?.ToString();
             var symbols = from sym in SymbolsTxtBx.Text.Trim() select sym.ToString();
             {
-                foreach (var sym in syms.Except(symbols))
+                foreach (var sym in syms.Except(symbols).ToArray())
                 {
                     foreach (var item in rows)
                         if (item.HeaderCell.Value.ToString() == sym && item.HeaderCell.Value.ToString() != "_")
@@ -82,7 +82,7 @@ namespace AlgorithmTuringInterface
             if (index > table.ColumnCount)
                 for (int i = table.ColumnCount + 1; i <= index; i++)
                 {
-                    DataGridViewTextBoxColumn column = new DataGridViewTextBoxColumn() { HeaderText = "Q" + i };
+                    DataGridViewTextBoxColumn column = new DataGridViewTextBoxColumn() { HeaderText = "Q" + i, SortMode = DataGridViewColumnSortMode.NotSortable };
                     table.Columns.Add(column);
                 }
             else
