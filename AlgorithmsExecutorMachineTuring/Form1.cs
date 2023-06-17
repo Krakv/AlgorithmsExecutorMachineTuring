@@ -12,11 +12,12 @@ namespace AlgorithmTuringInterface
         Dictionary<long, string> tape;
         DataGridView table;
         long shift = 0;
-        long chosenIndex = 0;
+        internal long chosenIndex = 0;
         int state = 1;
-        long speed;
+        int speed;
         bool isCreated = false;
-        AlgorithmExecutor.AlgorithmExecutor executor;
+        System.Windows.Forms.Timer timer;
+        internal AlgorithmExecutor.AlgorithmExecutor executor;
 
         public MachineTuring()
         {
@@ -32,11 +33,13 @@ namespace AlgorithmTuringInterface
             Data.table = table;
 
             // Считывание скорости из текстового бокса
-            speed = Int64.Parse(Regex.Replace(SpeedTxtBx.Text, @"[^\d]+", ""));
+            speed = Int32.Parse(Regex.Replace(SpeedTxtBx.Text, @"[^\d]+", ""));
 
             // Инициализация индексов названий строк (Для удаления строк)
             Data.InitializeKeysIndexes();
 
+            timer = new System.Windows.Forms.Timer() { Interval = speed };
+            timer.Tick += NextStepBtn_Click;
 
             // флажок, указывающий, что объект не находится в процессе инициализации
             isCreated = true;
@@ -189,7 +192,7 @@ namespace AlgorithmTuringInterface
         public void PaintQuantitiesStatesForm()
         {
             this.QuantityStates.Controls.Clear();
-            QuantityStatesForm frm = new QuantityStatesForm(Data.Actions, ref chosenIndex, ref state) { BackColor = Color.White, TopLevel = false, Dock = DockStyle.Fill, TopMost = true };
+            QuantityStatesForm frm = new QuantityStatesForm(Data.Actions, ref chosenIndex, ref state, this) { BackColor = Color.White, TopLevel = false, Dock = DockStyle.Fill, TopMost = true };
             this.QuantityStates.Controls.Add(frm);
             frm.Show();
         }
@@ -289,11 +292,34 @@ namespace AlgorithmTuringInterface
             InitializeTape();
             StartBtn.Enabled = true;
             InitChosenIndexBtn.Enabled = true;
+            StartNFinishBtn.Text = "Выполнить полностью";
 
+        }
+
+        private void StartNFinishBtn_Click(object sender, EventArgs e)
+        {
+            if (!timer.Enabled)
+            {
+                if (StartBtn.Enabled)
+                    StartBtn_Click(sender, e);
+                StartNFinishBtn.Text = "Приостановить";
+                timer.Start();
+            }
+            else
+            {
+                timer.Stop();
+                StartNFinishBtn.Text = "Выполнить полностью";
+            }
         }
 
         private void NextStepBtn_Click(object sender, EventArgs e)
         {
+            if (executor == null)
+            {
+                timer.Stop();
+                FinishBtn_Click(sender, e);
+                return;
+            }
             string symbol = GetSymbol;
             long chosenIndex;
             int state;
@@ -304,7 +330,10 @@ namespace AlgorithmTuringInterface
                 return;
             }
             this.state = state;
-            tape[this.chosenIndex] = symbol.Replace("_", "");
+            if (symbol == "_")
+                tape.Remove(this.chosenIndex);
+            else
+                tape[this.chosenIndex] = symbol;
             this.chosenIndex = chosenIndex;
             InitializeTape();
         }
@@ -631,20 +660,21 @@ namespace AlgorithmTuringInterface
 
         private void OpenQuantitiesTableBtn_Click(object sender, EventArgs e)
         {
-            QuantityStatesForm frm = new QuantityStatesForm(Data.Actions, ref chosenIndex, ref state) { FormBorderStyle = FormBorderStyle.Sizable };
+            QuantityStatesForm frm = new QuantityStatesForm(Data.Actions, ref chosenIndex, ref state, this) { FormBorderStyle = FormBorderStyle.Sizable };
             frm.Show();
         }
 
         private void ChangeSpeedBtn_Click(object sender, EventArgs e)
         {
             string result = Microsoft.VisualBasic.Interaction.InputBox("Введите положительное число - скорость выполнения алгоритма:");
-            bool isSuccess = result == "" || Int64.TryParse(result, out speed) && speed >= 0;
+            bool isSuccess = result == "" || Int32.TryParse(result, out speed) && speed >= 0;
             if (!isSuccess)
             {
                 MessageBox.Show("Не удалось получить положительное число", "Ошибка ввода", MessageBoxButtons.OK);
                 ChangeSpeedBtn_Click(sender, e);
                 return;
             }
+            timer.Interval = speed;
             if (result != "")
                 SpeedTxtBx.Text = speed.ToString() + " мс";
         }

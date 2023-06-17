@@ -20,19 +20,21 @@ namespace AlgorithmTuringInterface
         Font fontBold = new Font("Microsoft Sans Serif; 16pt; Bold", 16, FontStyle.Bold);
         long symbolIndex;
         int state;
+        MachineTuring owner;
 
-        public QuantityStatesForm(Dictionary<string, List<string>> actions, ref long symbolIndex, ref int state)
+        public QuantityStatesForm(Dictionary<string, List<string>> actions, ref long symbolIndex, ref int state, MachineTuring owner)
         {
-            this.state = state;
-            this.symbolIndex = symbolIndex;
             this.actions = actions;
+            this.symbolIndex = symbolIndex;
+            this.state = state;
+            this.owner = owner;
             InitializeComponent();
             MakeQuantitiesTable();
         }
 
         public void MarkCell(int state)
         {
-            bool isContain = Data.tape.ContainsKey(symbolIndex);
+            bool isContain = Data.tape.ContainsKey(owner.chosenIndex);
             int counter = 0;
             foreach (Label cell in QuantitiesTable.Controls)
             {
@@ -41,7 +43,7 @@ namespace AlgorithmTuringInterface
             }
             foreach (Label cell in QuantitiesTable.Controls)
             {
-                if (cell.Text == "_" || isContain && cell.Text == Data.tape[symbolIndex])
+                if (!isContain && cell.Text == "_" || isContain && cell.Text == Data.tape[owner.chosenIndex])
                 {
                     QuantitiesTable.Controls[counter + state].ForeColor = Color.Crimson;
                     return;

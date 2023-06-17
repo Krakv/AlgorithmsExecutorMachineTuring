@@ -545,6 +545,7 @@ namespace AlgorithmTuringInterface
             StartNFinishBtn.Name = "StartNFinishBtn";
             helpProvider1.SetShowHelp(StartNFinishBtn, (bool)resources.GetObject("StartNFinishBtn.ShowHelp"));
             StartNFinishBtn.UseVisualStyleBackColor = true;
+            StartNFinishBtn.Click += StartNFinishBtn_Click;
             // 
             // FinishBtn
             // 
