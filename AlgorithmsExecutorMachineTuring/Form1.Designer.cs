@@ -535,6 +535,7 @@ namespace AlgorithmTuringInterface
             PreviousStepBtn.Name = "PreviousStepBtn";
             helpProvider1.SetShowHelp(PreviousStepBtn, (bool)resources.GetObject("PreviousStepBtn.ShowHelp"));
             PreviousStepBtn.UseVisualStyleBackColor = true;
+            PreviousStepBtn.Click += PreviousStepBtn_Click;
             // 
             // StartNFinishBtn
             // 

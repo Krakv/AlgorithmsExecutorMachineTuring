@@ -14,7 +14,7 @@ namespace AlgorithmExecutor
 
         public static void AddToJournalNextHistory(object source, AlgorithmExecutorEventHandler e)
         {
-            journal.Add(source.GetType() + ";" + e.symbol + ";" + e.state);
+            journal.Add(source.GetType() + ";" + e.symbol + ";" + e.state + ";" + e.index);
             index = journal.Count - 1;
         }
 

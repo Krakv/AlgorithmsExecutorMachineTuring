@@ -40,23 +40,21 @@ namespace AlgorithmTuringInterface
             return tape;
         }
 
-        public static object[] ReadActionsFile(string filename)
+        public static Dictionary<string, List<string>> ReadActionsFile(string filename)
         {
             actions = new Dictionary<string, List<string>>();
-            IEnumerable<string> lines = File.ReadLines(filename, code);
-            foreach (string line in lines)
+            string[] lines = File.ReadLines(filename, code).ToArray();
+            int j = 0;
+            while (++j < lines.Length)
             {
-                if (quantity == null)
-                    quantity = line.Split(';');
-                else
-                {
-                    List<string> parts = new List<string>(line.Split(';'));
-                    string key = parts[0];
-                    parts.RemoveAt(0);
-                    actions.Add(key, parts);
-                }
+                //for (int i = 0; i < lines[j].Length; i++)
+                //    lines[j] = lines[j].Replace(";;", ";");
+                string[] acts = lines[j].Split(";");
+                if (acts[0].Trim() == "")
+                    acts[0] = "_";
+                actions.Add(acts[0], acts.Skip(1).ToList());
             }
-            return new object[2] { actions, quantity };
+            return actions;
         }
 
         public static object[] ReadFile(string filename)

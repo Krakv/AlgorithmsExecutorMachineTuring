@@ -32,7 +32,7 @@ namespace AlgorithmTuringInterface
         private void EditQuantities_FormClosing(object sender, FormClosingEventArgs e)
         {
             Controls.Clear(); // Для избежания удаления таблицы в качестве мусора
-            QuantityStatesForm tablePanel = owner.QuantityStates.Controls[0] as QuantityStatesForm;
+            QuantityStatesForm tablePanel = (QuantityStatesForm) owner.QuantityStates.Controls[0];
             tablePanel.ChangeTable(Data.Actions); // Перерисовка таблицы в форме-владельце
             owner.Enabled = true; // Включение формы-владельца
         }

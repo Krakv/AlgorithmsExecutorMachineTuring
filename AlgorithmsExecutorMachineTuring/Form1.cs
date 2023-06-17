@@ -1,21 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Drawing;
-using System.IO;
-using System.IO.Pipes;
-using System.Linq;
-using System.Resources;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static AlgorithmTuringInterface.Program;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 using AlgorithmsExecutorMachineTuring;
-using static System.Windows.Forms.Design.AxImporter;
 using AlgorithmExecutor;
-using System.Web;
 
 namespace AlgorithmTuringInterface
 {
@@ -49,19 +37,24 @@ namespace AlgorithmTuringInterface
             // Инициализация индексов названий строк (Для удаления строк)
             Data.InitializeKeysIndexes();
 
-            string symbol;
-            try
-            {
-                symbol = Data.tape[chosenIndex];
-            }
-            catch
-            {
-                symbol = "_";
-            }
-            this.executor = new AlgorithmExecutor.AlgorithmExecutor(Data.Actions, symbol, state);
 
             // флажок, указывающий, что объект не находится в процессе инициализации
             isCreated = true;
+        }
+
+        public string GetSymbol
+        {
+            get
+            {
+                try
+                {
+                    return Data.tape[chosenIndex];
+                }
+                catch
+                {
+                    return "_";
+                }
+            }
         }
 
         private void MachineTuring_Shown(object sender, EventArgs e)
@@ -153,6 +146,10 @@ namespace AlgorithmTuringInterface
 
         public void InitializeTape()
         {
+            if (chosenIndex > shift + 5)
+                shift = chosenIndex - 4;
+            if (chosenIndex < shift - 5)
+                shift = chosenIndex + 4;
             tape = Data.tape;
             foreach (TextBox textbox in Tape.Controls)
             {
@@ -278,6 +275,7 @@ namespace AlgorithmTuringInterface
             FinishBtn.Enabled = true;
             StartBtn.Enabled = false;
             InitChosenIndexBtn.Enabled = false;
+            this.executor = new AlgorithmExecutor.AlgorithmExecutor(Data.Actions, GetSymbol, state, chosenIndex);
         }
 
         private void FinishBtn_Click(object sender, EventArgs e)
@@ -285,20 +283,42 @@ namespace AlgorithmTuringInterface
             NextStepBtn.Enabled = false;
             PreviousStepBtn.Enabled = false;
             FinishBtn.Enabled = false;
+            executor = null;
+            state = 1;
+            chosenIndex = 0;
+            InitializeTape();
             StartBtn.Enabled = true;
             InitChosenIndexBtn.Enabled = true;
+
         }
 
         private void NextStepBtn_Click(object sender, EventArgs e)
         {
-            string symbol;
-            int shift;
-            executor.NextStep(out symbol, out this.state, out shift);
-            tape[chosenIndex] = symbol.Replace("_", "");
-            chosenIndex += shift;
+            string symbol = GetSymbol;
+            long chosenIndex;
+            int state;
+            bool isFinished = !executor.NextStep(ref symbol, out state, out chosenIndex);
+            if (isFinished)
+            {
+                FinishBtn_Click(sender, e);
+                return;
+            }
+            this.state = state;
+            tape[this.chosenIndex] = symbol.Replace("_", "");
+            this.chosenIndex = chosenIndex;
             InitializeTape();
-            QuantityStatesForm tablePanel = (QuantityStatesForm)QuantityStates.Controls[0];
-            tablePanel.MarkCell(this.state);
+        }
+
+        private void PreviousStepBtn_Click(object sender, EventArgs e)
+        {
+            string symbol = GetSymbol;
+            long chosenIndex;
+            int state;
+            executor.PreviousStep(ref symbol, out state, out chosenIndex);
+            this.state = state;
+            tape[this.chosenIndex] = symbol.Replace("_", "");
+            this.chosenIndex = chosenIndex;
+            InitializeTape();
         }
 
         #endregion Buttons
@@ -394,8 +414,8 @@ namespace AlgorithmTuringInterface
             try
             {
                 var objects = Program.ReadFile(path);
-                Data.Actions = objects[0] as Dictionary<string, List<string>>;
-                Data.tape = objects[1] as Dictionary<long, string>;
+                Data.Actions = (Dictionary<string, List<string>>)objects[0];
+                Data.tape = (Dictionary<long, string>)objects[1];
                 CreateTable(Data.Actions, ref table);
                 QuantityStatesForm? tablePanel = QuantityStates.Controls[0] as QuantityStatesForm;
                 tablePanel?.ChangeTable(Data.Actions);
@@ -505,9 +525,10 @@ namespace AlgorithmTuringInterface
             try
             {
                 actionsPath = Program.FindPathManually();
-                object[] obj = Program.ReadActionsFile(actionsPath);
-                Data.Actions = obj[0] as Dictionary<string, List<string>>;
-                Data.quantities = obj[1] as string[];
+                Data.Actions = Program.ReadActionsFile(actionsPath);
+                CreateTable(Data.Actions, ref table);
+                QuantityStatesForm tablePanel = (QuantityStatesForm)QuantityStates.Controls[0];
+                tablePanel.ChangeTable(Data.Actions);
             }
             catch
             {

@@ -41,10 +41,11 @@ namespace AlgorithmTuringInterface
             }
             foreach (Label cell in QuantitiesTable.Controls)
             {
-                if (!isContain && cell.Text == "_")
+                if (cell.Text == "_" || isContain && cell.Text == Data.tape[symbolIndex])
+                {
                     QuantitiesTable.Controls[counter + state].ForeColor = Color.Crimson;
-                if (isContain && cell.Text == Data.tape[symbolIndex])
-                    QuantitiesTable.Controls[counter + state].ForeColor = Color.Crimson;
+                    return;
+                }
                 counter++;
             }
         }
