@@ -343,10 +343,15 @@ namespace AlgorithmTuringInterface
             string symbol = GetSymbol;
             long chosenIndex;
             int state;
-            executor.PreviousStep(ref symbol, out state, out chosenIndex);
+            bool isFinished = !executor.PreviousStep(ref symbol, out state, out chosenIndex);
+            if (isFinished)
+            {
+                FinishBtn_Click(sender, e);
+                return;
+            }
             this.state = state;
-            tape[this.chosenIndex] = symbol.Replace("_", "");
             this.chosenIndex = chosenIndex;
+            tape[this.chosenIndex] = symbol.Replace("_", "");
             InitializeTape();
         }
 

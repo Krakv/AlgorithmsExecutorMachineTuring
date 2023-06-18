@@ -57,7 +57,7 @@ namespace AlgorithmExecutor
             string actions = statesTable[symbol][this.state - 1];
             if (actions.Trim() != "" && regex.IsMatch(actions))
             {
-                OnNextStep(this, new AlgorithmExecutorEventHandler(this.symbol, this.state, this.chosenIndex));
+                OnNextStep(this, new AlgorithmExecutorEventHandler(symbol, this.state, this.chosenIndex));
                 string stringState = new Regex(@"Q\d+\z").Matches(actions).First().ToString().Substring(1);
                 state = Int32.Parse(stringState);
                 this.symbol = symbol;
@@ -87,7 +87,6 @@ namespace AlgorithmExecutor
         {
             if (Journal.journal.Count == 0)
             {
-                symbol = this.symbol;
                 state = this.state;
                 chosenIndex = this.chosenIndex;
                 return false;

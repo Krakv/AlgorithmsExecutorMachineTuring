@@ -35,7 +35,8 @@ namespace AlgorithmTuringInterface
             string[] values = lines[1].Split(';');
             for (int i = 0; i < keys.Length; i++)
             {
-                tape.Add(Int32.Parse(keys[i]), values[i]);
+                if (keys[i].Trim() != "" && values[i].Trim() != "")
+                    tape.Add(Int32.Parse(keys[i]), values[i]);
             }
             return tape;
         }
