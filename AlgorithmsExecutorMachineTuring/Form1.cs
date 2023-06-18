@@ -278,6 +278,12 @@ namespace AlgorithmTuringInterface
             FinishBtn.Enabled = true;
             StartBtn.Enabled = false;
             InitChosenIndexBtn.Enabled = false;
+            File.Enabled = false;
+            TapeFile.Enabled = false;
+            QuantitiesFile.Enabled = false;
+            EditQuantitiesFileBtn.Enabled = false;
+            EditTapeFileBtn.Enabled = false;
+            Tasks.Enabled = false;
             this.executor = new AlgorithmExecutor.AlgorithmExecutor(Data.Actions, GetSymbol, state, chosenIndex);
         }
 
@@ -292,6 +298,12 @@ namespace AlgorithmTuringInterface
             InitializeTape();
             StartBtn.Enabled = true;
             InitChosenIndexBtn.Enabled = true;
+            File.Enabled = true;
+            TapeFile.Enabled = true;
+            QuantitiesFile.Enabled = true;
+            EditQuantitiesFileBtn.Enabled = true;
+            EditTapeFileBtn.Enabled = true;
+            Tasks.Enabled = true;
             StartNFinishBtn.Text = "Выполнить полностью";
 
         }
@@ -470,7 +482,8 @@ namespace AlgorithmTuringInterface
             try
             {
                 tapePath = Program.FindPathManually();
-                tape = Program.ReadTape(tapePath);
+                Data.tape = Program.ReadTape(tapePath);
+                InitializeTape();
             }
             catch
             {
@@ -796,5 +809,8 @@ namespace AlgorithmTuringInterface
             CloseTaskBoxBtn.Visible = false;
         }
 
+        private void MachineTuring_Load(object sender, EventArgs e)
+        {
+        }
     }
 }

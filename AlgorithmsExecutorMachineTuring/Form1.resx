@@ -1351,10 +1351,10 @@
   <data name="UploadFileBtn.Text" xml:space="preserve">
     <value>Загрузить</value>
   </data>
-  <data name="файлToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="File.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 20</value>
   </data>
-  <data name="файлToolStripMenuItem.Text" xml:space="preserve">
+  <data name="File.Text" xml:space="preserve">
     <value>Файл</value>
   </data>
   <data name="CreateTapeFile.Size" type="System.Drawing.Size, System.Drawing">
@@ -1990,10 +1990,10 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Исполнитель алгоритмов</value>
   </data>
-  <data name="&gt;&gt;файлToolStripMenuItem.Name" xml:space="preserve">
-    <value>файлToolStripMenuItem</value>
+  <data name="&gt;&gt;File.Name" xml:space="preserve">
+    <value>File</value>
   </data>
-  <data name="&gt;&gt;файлToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;File.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;SaveFileBtn.Name" xml:space="preserve">

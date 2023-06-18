@@ -62,7 +62,7 @@ namespace AlgorithmTuringInterface
             CloseTaskBoxBtn = new Button();
             TaskBox = new TextBox();
             menuStrip1 = new MenuStrip();
-            файлToolStripMenuItem = new ToolStripMenuItem();
+            File = new ToolStripMenuItem();
             SaveFileBtn = new ToolStripMenuItem();
             UploadFileBtn = new ToolStripMenuItem();
             TapeMenuItem = new ToolStripMenuItem();
@@ -339,16 +339,16 @@ namespace AlgorithmTuringInterface
             helpProvider1.SetHelpKeyword(menuStrip1, resources.GetString("menuStrip1.HelpKeyword"));
             helpProvider1.SetHelpNavigator(menuStrip1, (HelpNavigator)resources.GetObject("menuStrip1.HelpNavigator"));
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { файлToolStripMenuItem, TapeMenuItem, QuantitiesMenuItem, скоростьToolStripMenuItem, Tasks, помощьToolStripMenuItem, AboutProgramBtn });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { File, TapeMenuItem, QuantitiesMenuItem, скоростьToolStripMenuItem, Tasks, помощьToolStripMenuItem, AboutProgramBtn });
             resources.ApplyResources(menuStrip1, "menuStrip1");
             menuStrip1.Name = "menuStrip1";
             helpProvider1.SetShowHelp(menuStrip1, (bool)resources.GetObject("menuStrip1.ShowHelp"));
             // 
-            // файлToolStripMenuItem
+            // File
             // 
-            файлToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { SaveFileBtn, UploadFileBtn });
-            файлToolStripMenuItem.Name = "файлToolStripMenuItem";
-            resources.ApplyResources(файлToolStripMenuItem, "файлToolStripMenuItem");
+            File.DropDownItems.AddRange(new ToolStripItem[] { SaveFileBtn, UploadFileBtn });
+            File.Name = "File";
+            resources.ApplyResources(File, "File");
             // 
             // SaveFileBtn
             // 
@@ -670,6 +670,7 @@ namespace AlgorithmTuringInterface
             Name = "MachineTuring";
             helpProvider1.SetShowHelp(this, (bool)resources.GetObject("$this.ShowHelp"));
             FormClosing += MachineTuring_FormClosing;
+            Load += MachineTuring_Load;
             Shown += MachineTuring_Shown;
             Tape.ResumeLayout(false);
             Tape.PerformLayout();
@@ -719,7 +720,7 @@ namespace AlgorithmTuringInterface
         private Button StartNFinishBtn;
         private Button FinishBtn;
         private ErrorProvider errorProvider1;
-        private ToolStripMenuItem файлToolStripMenuItem;
+        private ToolStripMenuItem File;
         private ToolStripMenuItem SaveFileBtn;
         private ToolStripMenuItem UploadFileBtn;
         private ToolStripMenuItem TapeMenuItem;
