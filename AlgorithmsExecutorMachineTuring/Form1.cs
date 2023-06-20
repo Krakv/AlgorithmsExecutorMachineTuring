@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
-using System.Windows.Forms;
 using static AlgorithmTuringInterface.Program;
 using AlgorithmsExecutorMachineTuring;
-using AlgorithmExecutor;
 
 namespace AlgorithmTuringInterface
 {
