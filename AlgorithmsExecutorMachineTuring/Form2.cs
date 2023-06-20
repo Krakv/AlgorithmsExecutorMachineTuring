@@ -11,19 +11,23 @@ namespace AlgorithmTuringInterface
         long symbolIndex;
         int state;
         MachineTuring owner;
+        bool isSeparated = false;
 
-        public QuantityStatesForm(Dictionary<string, List<string>> actions, ref long symbolIndex, ref int state, MachineTuring owner)
+        public QuantityStatesForm(Dictionary<string, List<string>> actions, ref long symbolIndex, ref int state, MachineTuring owner, bool isSeparated = false)
         {
             this.actions = actions;
             this.symbolIndex = symbolIndex;
             this.state = state;
             this.owner = owner;
+            this.isSeparated = isSeparated;
             InitializeComponent();
             MakeQuantitiesTable();
         }
 
         public void MarkCell(int state)
         {
+            if (!isSeparated && owner.frm != null)
+                owner.frm.MarkCell(state);
             bool isContain = Data.tape.ContainsKey(owner.chosenIndex);
             int counter = 0;
             foreach (Label cell in QuantitiesTable.Controls)
@@ -41,7 +45,7 @@ namespace AlgorithmTuringInterface
                 counter++;
             }
         }
-        
+
         public void ChangeTableElement(string value, int index)
         {
             QuantitiesTable.Controls[index].Text = value;
@@ -49,6 +53,8 @@ namespace AlgorithmTuringInterface
 
         public void ChangeTable(Dictionary<string, List<string>> actions)
         {
+            if (!isSeparated && owner.frm != null)
+                owner.frm.ChangeTable(actions);
             this.actions = actions;
             Controls.Clear();
             MakeQuantitiesTable();
@@ -74,7 +80,7 @@ namespace AlgorithmTuringInterface
             QuantitiesTable.Controls.Add(new Label() { Font = font, AutoSize = true }, 0, 0);
             for (int i = 0; i < QuantitiesTable.ColumnCount - 1; i++)
             {
-                Label lbl = new Label() { Text = "Q" + (i + 1), Font = fontBold, Dock = DockStyle.Fill, AutoSize = true, Anchor = AnchorStyles.None};
+                Label lbl = new Label() { Text = "Q" + (i + 1), Font = fontBold, Dock = DockStyle.Fill, AutoSize = true, Anchor = AnchorStyles.None };
                 QuantitiesTable.Controls.Add(lbl, i + 1, 0);
             }
             int counter = 0;

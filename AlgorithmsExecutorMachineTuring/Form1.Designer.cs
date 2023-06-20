@@ -103,6 +103,9 @@ namespace AlgorithmTuringInterface
             PreviousElement = new Button();
             NextElement = new Button();
             helpProvider1 = new HelpProvider();
+            label1 = new Label();
+            SymbolsTxtBx = new TextBox();
+            SaveRowsBtn = new Button();
             Tape.SuspendLayout();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
@@ -142,6 +145,8 @@ namespace AlgorithmTuringInterface
             // textBox12
             // 
             resources.ApplyResources(textBox12, "textBox12");
+            helpProvider1.SetHelpKeyword(textBox12, resources.GetString("textBox12.HelpKeyword"));
+            helpProvider1.SetHelpNavigator(textBox12, (HelpNavigator)resources.GetObject("textBox12.HelpNavigator"));
             textBox12.Name = "textBox12";
             textBox12.ReadOnly = true;
             helpProvider1.SetShowHelp(textBox12, (bool)resources.GetObject("textBox12.ShowHelp"));
@@ -149,6 +154,8 @@ namespace AlgorithmTuringInterface
             // textBox16
             // 
             resources.ApplyResources(textBox16, "textBox16");
+            helpProvider1.SetHelpKeyword(textBox16, resources.GetString("textBox16.HelpKeyword"));
+            helpProvider1.SetHelpNavigator(textBox16, (HelpNavigator)resources.GetObject("textBox16.HelpNavigator"));
             textBox16.Name = "textBox16";
             textBox16.ReadOnly = true;
             helpProvider1.SetShowHelp(textBox16, (bool)resources.GetObject("textBox16.ShowHelp"));
@@ -156,6 +163,8 @@ namespace AlgorithmTuringInterface
             // textBox17
             // 
             resources.ApplyResources(textBox17, "textBox17");
+            helpProvider1.SetHelpKeyword(textBox17, resources.GetString("textBox17.HelpKeyword"));
+            helpProvider1.SetHelpNavigator(textBox17, (HelpNavigator)resources.GetObject("textBox17.HelpNavigator"));
             textBox17.Name = "textBox17";
             textBox17.ReadOnly = true;
             helpProvider1.SetShowHelp(textBox17, (bool)resources.GetObject("textBox17.ShowHelp"));
@@ -163,6 +172,8 @@ namespace AlgorithmTuringInterface
             // textBox15
             // 
             resources.ApplyResources(textBox15, "textBox15");
+            helpProvider1.SetHelpKeyword(textBox15, resources.GetString("textBox15.HelpKeyword"));
+            helpProvider1.SetHelpNavigator(textBox15, (HelpNavigator)resources.GetObject("textBox15.HelpNavigator"));
             textBox15.Name = "textBox15";
             textBox15.ReadOnly = true;
             helpProvider1.SetShowHelp(textBox15, (bool)resources.GetObject("textBox15.ShowHelp"));
@@ -170,6 +181,8 @@ namespace AlgorithmTuringInterface
             // textBox13
             // 
             resources.ApplyResources(textBox13, "textBox13");
+            helpProvider1.SetHelpKeyword(textBox13, resources.GetString("textBox13.HelpKeyword"));
+            helpProvider1.SetHelpNavigator(textBox13, (HelpNavigator)resources.GetObject("textBox13.HelpNavigator"));
             textBox13.Name = "textBox13";
             textBox13.ReadOnly = true;
             helpProvider1.SetShowHelp(textBox13, (bool)resources.GetObject("textBox13.ShowHelp"));
@@ -177,6 +190,8 @@ namespace AlgorithmTuringInterface
             // textBox14
             // 
             resources.ApplyResources(textBox14, "textBox14");
+            helpProvider1.SetHelpKeyword(textBox14, resources.GetString("textBox14.HelpKeyword"));
+            helpProvider1.SetHelpNavigator(textBox14, (HelpNavigator)resources.GetObject("textBox14.HelpNavigator"));
             textBox14.Name = "textBox14";
             textBox14.ReadOnly = true;
             helpProvider1.SetShowHelp(textBox14, (bool)resources.GetObject("textBox14.ShowHelp"));
@@ -184,6 +199,8 @@ namespace AlgorithmTuringInterface
             // textBox21
             // 
             resources.ApplyResources(textBox21, "textBox21");
+            helpProvider1.SetHelpKeyword(textBox21, resources.GetString("textBox21.HelpKeyword"));
+            helpProvider1.SetHelpNavigator(textBox21, (HelpNavigator)resources.GetObject("textBox21.HelpNavigator"));
             textBox21.Name = "textBox21";
             textBox21.ReadOnly = true;
             helpProvider1.SetShowHelp(textBox21, (bool)resources.GetObject("textBox21.ShowHelp"));
@@ -191,6 +208,8 @@ namespace AlgorithmTuringInterface
             // textBox2
             // 
             resources.ApplyResources(textBox2, "textBox2");
+            helpProvider1.SetHelpKeyword(textBox2, resources.GetString("textBox2.HelpKeyword"));
+            helpProvider1.SetHelpNavigator(textBox2, (HelpNavigator)resources.GetObject("textBox2.HelpNavigator"));
             textBox2.Name = "textBox2";
             textBox2.ReadOnly = true;
             helpProvider1.SetShowHelp(textBox2, (bool)resources.GetObject("textBox2.ShowHelp"));
@@ -198,6 +217,8 @@ namespace AlgorithmTuringInterface
             // textBox22
             // 
             resources.ApplyResources(textBox22, "textBox22");
+            helpProvider1.SetHelpKeyword(textBox22, resources.GetString("textBox22.HelpKeyword"));
+            helpProvider1.SetHelpNavigator(textBox22, (HelpNavigator)resources.GetObject("textBox22.HelpNavigator"));
             textBox22.Name = "textBox22";
             textBox22.ReadOnly = true;
             helpProvider1.SetShowHelp(textBox22, (bool)resources.GetObject("textBox22.ShowHelp"));
@@ -205,6 +226,8 @@ namespace AlgorithmTuringInterface
             // textBox20
             // 
             resources.ApplyResources(textBox20, "textBox20");
+            helpProvider1.SetHelpKeyword(textBox20, resources.GetString("textBox20.HelpKeyword"));
+            helpProvider1.SetHelpNavigator(textBox20, (HelpNavigator)resources.GetObject("textBox20.HelpNavigator"));
             textBox20.Name = "textBox20";
             textBox20.ReadOnly = true;
             helpProvider1.SetShowHelp(textBox20, (bool)resources.GetObject("textBox20.ShowHelp"));
@@ -212,6 +235,8 @@ namespace AlgorithmTuringInterface
             // textBox18
             // 
             resources.ApplyResources(textBox18, "textBox18");
+            helpProvider1.SetHelpKeyword(textBox18, resources.GetString("textBox18.HelpKeyword"));
+            helpProvider1.SetHelpNavigator(textBox18, (HelpNavigator)resources.GetObject("textBox18.HelpNavigator"));
             textBox18.Name = "textBox18";
             textBox18.ReadOnly = true;
             helpProvider1.SetShowHelp(textBox18, (bool)resources.GetObject("textBox18.ShowHelp"));
@@ -219,6 +244,8 @@ namespace AlgorithmTuringInterface
             // textBox19
             // 
             resources.ApplyResources(textBox19, "textBox19");
+            helpProvider1.SetHelpKeyword(textBox19, resources.GetString("textBox19.HelpKeyword"));
+            helpProvider1.SetHelpNavigator(textBox19, (HelpNavigator)resources.GetObject("textBox19.HelpNavigator"));
             textBox19.Name = "textBox19";
             textBox19.ReadOnly = true;
             helpProvider1.SetShowHelp(textBox19, (bool)resources.GetObject("textBox19.ShowHelp"));
@@ -226,6 +253,8 @@ namespace AlgorithmTuringInterface
             // textBox4
             // 
             resources.ApplyResources(textBox4, "textBox4");
+            helpProvider1.SetHelpKeyword(textBox4, resources.GetString("textBox4.HelpKeyword"));
+            helpProvider1.SetHelpNavigator(textBox4, (HelpNavigator)resources.GetObject("textBox4.HelpNavigator"));
             textBox4.Name = "textBox4";
             textBox4.ReadOnly = true;
             helpProvider1.SetShowHelp(textBox4, (bool)resources.GetObject("textBox4.ShowHelp"));
@@ -233,6 +262,8 @@ namespace AlgorithmTuringInterface
             // textBox5
             // 
             resources.ApplyResources(textBox5, "textBox5");
+            helpProvider1.SetHelpKeyword(textBox5, resources.GetString("textBox5.HelpKeyword"));
+            helpProvider1.SetHelpNavigator(textBox5, (HelpNavigator)resources.GetObject("textBox5.HelpNavigator"));
             textBox5.Name = "textBox5";
             textBox5.ReadOnly = true;
             helpProvider1.SetShowHelp(textBox5, (bool)resources.GetObject("textBox5.ShowHelp"));
@@ -240,6 +271,8 @@ namespace AlgorithmTuringInterface
             // textBox6
             // 
             resources.ApplyResources(textBox6, "textBox6");
+            helpProvider1.SetHelpKeyword(textBox6, resources.GetString("textBox6.HelpKeyword"));
+            helpProvider1.SetHelpNavigator(textBox6, (HelpNavigator)resources.GetObject("textBox6.HelpNavigator"));
             textBox6.Name = "textBox6";
             textBox6.ReadOnly = true;
             helpProvider1.SetShowHelp(textBox6, (bool)resources.GetObject("textBox6.ShowHelp"));
@@ -247,6 +280,8 @@ namespace AlgorithmTuringInterface
             // textBox1
             // 
             resources.ApplyResources(textBox1, "textBox1");
+            helpProvider1.SetHelpKeyword(textBox1, resources.GetString("textBox1.HelpKeyword"));
+            helpProvider1.SetHelpNavigator(textBox1, (HelpNavigator)resources.GetObject("textBox1.HelpNavigator"));
             textBox1.Name = "textBox1";
             textBox1.ReadOnly = true;
             helpProvider1.SetShowHelp(textBox1, (bool)resources.GetObject("textBox1.ShowHelp"));
@@ -254,6 +289,8 @@ namespace AlgorithmTuringInterface
             // textBox3
             // 
             resources.ApplyResources(textBox3, "textBox3");
+            helpProvider1.SetHelpKeyword(textBox3, resources.GetString("textBox3.HelpKeyword"));
+            helpProvider1.SetHelpNavigator(textBox3, (HelpNavigator)resources.GetObject("textBox3.HelpNavigator"));
             textBox3.Name = "textBox3";
             textBox3.ReadOnly = true;
             helpProvider1.SetShowHelp(textBox3, (bool)resources.GetObject("textBox3.ShowHelp"));
@@ -261,6 +298,8 @@ namespace AlgorithmTuringInterface
             // textBox10
             // 
             resources.ApplyResources(textBox10, "textBox10");
+            helpProvider1.SetHelpKeyword(textBox10, resources.GetString("textBox10.HelpKeyword"));
+            helpProvider1.SetHelpNavigator(textBox10, (HelpNavigator)resources.GetObject("textBox10.HelpNavigator"));
             textBox10.Name = "textBox10";
             textBox10.ReadOnly = true;
             helpProvider1.SetShowHelp(textBox10, (bool)resources.GetObject("textBox10.ShowHelp"));
@@ -268,6 +307,8 @@ namespace AlgorithmTuringInterface
             // textBox11
             // 
             resources.ApplyResources(textBox11, "textBox11");
+            helpProvider1.SetHelpKeyword(textBox11, resources.GetString("textBox11.HelpKeyword"));
+            helpProvider1.SetHelpNavigator(textBox11, (HelpNavigator)resources.GetObject("textBox11.HelpNavigator"));
             textBox11.Name = "textBox11";
             textBox11.ReadOnly = true;
             helpProvider1.SetShowHelp(textBox11, (bool)resources.GetObject("textBox11.ShowHelp"));
@@ -275,6 +316,8 @@ namespace AlgorithmTuringInterface
             // textBox9
             // 
             resources.ApplyResources(textBox9, "textBox9");
+            helpProvider1.SetHelpKeyword(textBox9, resources.GetString("textBox9.HelpKeyword"));
+            helpProvider1.SetHelpNavigator(textBox9, (HelpNavigator)resources.GetObject("textBox9.HelpNavigator"));
             textBox9.Name = "textBox9";
             textBox9.ReadOnly = true;
             helpProvider1.SetShowHelp(textBox9, (bool)resources.GetObject("textBox9.ShowHelp"));
@@ -282,6 +325,8 @@ namespace AlgorithmTuringInterface
             // textBox7
             // 
             resources.ApplyResources(textBox7, "textBox7");
+            helpProvider1.SetHelpKeyword(textBox7, resources.GetString("textBox7.HelpKeyword"));
+            helpProvider1.SetHelpNavigator(textBox7, (HelpNavigator)resources.GetObject("textBox7.HelpNavigator"));
             textBox7.Name = "textBox7";
             textBox7.ReadOnly = true;
             helpProvider1.SetShowHelp(textBox7, (bool)resources.GetObject("textBox7.ShowHelp"));
@@ -289,6 +334,8 @@ namespace AlgorithmTuringInterface
             // textBox8
             // 
             resources.ApplyResources(textBox8, "textBox8");
+            helpProvider1.SetHelpKeyword(textBox8, resources.GetString("textBox8.HelpKeyword"));
+            helpProvider1.SetHelpNavigator(textBox8, (HelpNavigator)resources.GetObject("textBox8.HelpNavigator"));
             textBox8.Name = "textBox8";
             textBox8.ReadOnly = true;
             helpProvider1.SetShowHelp(textBox8, (bool)resources.GetObject("textBox8.ShowHelp"));
@@ -637,12 +684,42 @@ namespace AlgorithmTuringInterface
             // 
             resources.ApplyResources(helpProvider1, "helpProvider1");
             // 
+            // label1
+            // 
+            resources.ApplyResources(label1, "label1");
+            helpProvider1.SetHelpKeyword(label1, resources.GetString("label1.HelpKeyword"));
+            helpProvider1.SetHelpNavigator(label1, (HelpNavigator)resources.GetObject("label1.HelpNavigator"));
+            label1.Name = "label1";
+            helpProvider1.SetShowHelp(label1, (bool)resources.GetObject("label1.ShowHelp"));
+            // 
+            // SymbolsTxtBx
+            // 
+            resources.ApplyResources(SymbolsTxtBx, "SymbolsTxtBx");
+            helpProvider1.SetHelpKeyword(SymbolsTxtBx, resources.GetString("SymbolsTxtBx.HelpKeyword"));
+            helpProvider1.SetHelpNavigator(SymbolsTxtBx, (HelpNavigator)resources.GetObject("SymbolsTxtBx.HelpNavigator"));
+            SymbolsTxtBx.Name = "SymbolsTxtBx";
+            helpProvider1.SetShowHelp(SymbolsTxtBx, (bool)resources.GetObject("SymbolsTxtBx.ShowHelp"));
+            SymbolsTxtBx.Validating += SymbolsTxtBx_Validating;
+            // 
+            // SaveRowsBtn
+            // 
+            resources.ApplyResources(SaveRowsBtn, "SaveRowsBtn");
+            helpProvider1.SetHelpKeyword(SaveRowsBtn, resources.GetString("SaveRowsBtn.HelpKeyword"));
+            helpProvider1.SetHelpNavigator(SaveRowsBtn, (HelpNavigator)resources.GetObject("SaveRowsBtn.HelpNavigator"));
+            SaveRowsBtn.Name = "SaveRowsBtn";
+            helpProvider1.SetShowHelp(SaveRowsBtn, (bool)resources.GetObject("SaveRowsBtn.ShowHelp"));
+            SaveRowsBtn.UseVisualStyleBackColor = true;
+            SaveRowsBtn.Click += SaveRowsBtn_Click;
+            // 
             // MachineTuring
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             AutoValidate = AutoValidate.EnablePreventFocusChange;
             BackColor = SystemColors.Window;
+            Controls.Add(SaveRowsBtn);
+            Controls.Add(SymbolsTxtBx);
+            Controls.Add(label1);
             Controls.Add(CloseTaskBoxBtn);
             Controls.Add(EditTapeFileBtn);
             Controls.Add(TaskBox);
@@ -753,6 +830,9 @@ namespace AlgorithmTuringInterface
         private HelpProvider helpProvider1;
         public Button CloseTaskBoxBtn;
         public TextBox TaskBox;
+        private TextBox SymbolsTxtBx;
+        private Label label1;
+        private Button SaveRowsBtn;
     }
 }
 

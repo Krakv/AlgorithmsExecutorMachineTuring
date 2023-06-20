@@ -130,4 +130,55 @@
   <data name="w512h5121390846436left512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\w512h5121390846436left512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Task1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Tasks\Task1.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Task11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Tasks\Task1.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Task2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Tasks\Task2.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Task21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Tasks\Task2.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Task3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Tasks\Task3.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="Task31" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Tasks\Task3.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Task4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Tasks\Task4.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="Task41" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Tasks\Task4.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Task5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Tasks\Task5.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="Task51" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Tasks\Task5.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Task6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Tasks\Task6.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="Task61" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Tasks\Task6.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Task7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Tasks\Task7.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="Task71" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Tasks\Task7.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Task8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Tasks\Task8.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
+  <data name="Task81" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Tasks\Task8.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="UserGuide" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\UserGuide.chm;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

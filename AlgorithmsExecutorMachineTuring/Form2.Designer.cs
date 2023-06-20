@@ -28,50 +28,50 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.QuantitiesTable = new System.Windows.Forms.TableLayoutPanel();
-            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
-            this.SuspendLayout();
+            QuantitiesTable = new TableLayoutPanel();
+            helpProvider1 = new HelpProvider();
+            SuspendLayout();
             // 
             // QuantitiesTable
             // 
-            this.QuantitiesTable.AutoSize = true;
-            this.QuantitiesTable.BackColor = System.Drawing.SystemColors.Window;
-            this.QuantitiesTable.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.QuantitiesTable.ColumnCount = 1;
-            this.QuantitiesTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.QuantitiesTable.Location = new System.Drawing.Point(0, 0);
-            this.QuantitiesTable.Name = "QuantitiesTable";
-            this.QuantitiesTable.RowCount = 1;
-            this.QuantitiesTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.QuantitiesTable.Size = new System.Drawing.Size(200, 100);
-            this.QuantitiesTable.TabIndex = 0;
+            QuantitiesTable.AutoSize = true;
+            QuantitiesTable.BackColor = SystemColors.Window;
+            QuantitiesTable.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
+            QuantitiesTable.ColumnCount = 1;
+            QuantitiesTable.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            QuantitiesTable.Location = new Point(0, 0);
+            QuantitiesTable.Margin = new Padding(4, 3, 4, 3);
+            QuantitiesTable.Name = "QuantitiesTable";
+            QuantitiesTable.RowCount = 1;
+            QuantitiesTable.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            QuantitiesTable.Size = new Size(233, 115);
+            QuantitiesTable.TabIndex = 0;
             // 
             // helpProvider1
             // 
-            this.helpProvider1.HelpNamespace = "UserGuide.chm";
+            helpProvider1.HelpNamespace = "UserGuide.chm";
             // 
             // QuantityStatesForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(600, 366);
-            this.Controls.Add(this.QuantitiesTable);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.helpProvider1.SetHelpKeyword(this, "91");
-            this.helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.TopicId);
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "QuantityStatesForm";
-            this.helpProvider1.SetShowHelp(this, true);
-            this.Text = "Form2";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            AutoScroll = true;
+            ClientSize = new Size(700, 422);
+            Controls.Add(QuantitiesTable);
+            FormBorderStyle = FormBorderStyle.None;
+            helpProvider1.SetHelpKeyword(this, "91");
+            helpProvider1.SetHelpNavigator(this, HelpNavigator.TopicId);
+            Margin = new Padding(2);
+            Name = "QuantityStatesForm";
+            helpProvider1.SetShowHelp(this, true);
+            Text = "Таблица состояний";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel QuantitiesTable;
-        private System.Windows.Forms.HelpProvider helpProvider1;
+        private TableLayoutPanel QuantitiesTable;
+        private HelpProvider helpProvider1;
     }
 }

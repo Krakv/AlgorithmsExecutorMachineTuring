@@ -22,7 +22,7 @@ namespace AlgorithmsExecutorMachineTuring.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace AlgorithmsExecutorMachineTuring.Properties {
         ///   Возвращает кэшированный экземпляр ResourceManager, использованный этим классом.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AlgorithmsExecutorMachineTuring.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace AlgorithmsExecutorMachineTuring.Properties {
         ///   обращений к ресурсу с помощью этого класса ресурса со строгой типизацией.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace AlgorithmsExecutorMachineTuring.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _109164 {
+        public static System.Drawing.Bitmap _109164 {
             get {
                 object obj = ResourceManager.GetObject("109164", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -73,7 +73,7 @@ namespace AlgorithmsExecutorMachineTuring.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _1159633 {
+        public static System.Drawing.Bitmap _1159633 {
             get {
                 object obj = ResourceManager.GetObject("1159633", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -81,9 +81,245 @@ namespace AlgorithmsExecutorMachineTuring.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на 0;1;2;3;4;5;6
+        ///0;0;1;1;0;1;1
+        ///
+        ///;Q1
+        /// ;
+        ///0;
+        ///1;.
+        /// </summary>
+        public static string Task1 {
+            get {
+                return ResourceManager.GetString("Task1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Пусть A={0, 1, _}. На ленте в ячейках находятся символы из алфавита в следующем порядке 0011011. каретка находится над первым символом. Необходимо составить программу, которая заменит 0 на 1, 1 на 0 и вернет каретку в первоначальное положение.
+        ///.
+        /// </summary>
+        public static string Task11 {
+            get {
+                return ResourceManager.GetString("Task11", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на 0;1;2;3;4;5;6;7;8;9;10;11
+        ///0;0;1;1;0;1;0;1;1;1;0;1
+        ///
+        ///;Q1
+        /// ;
+        ///0;
+        ///1;.
+        /// </summary>
+        public static string Task2 {
+            get {
+                return ResourceManager.GetString("Task2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Дано: конечная последовательность 0 и 1 (001101011101). Необходимо выписать единицы после данной последовательности, через пустую ячейку, а в данной последовательности заменить все символы на 0.
+        ///
+        ///.
+        /// </summary>
+        public static string Task21 {
+            get {
+                return ResourceManager.GetString("Task21", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на -1;0;1;2;
+        ///1;8;9;9;
+        ///
+        /// ;Q1
+        /// ;
+        ///0;
+        ///1;
+        ///2;
+        ///3;
+        ///4;
+        ///5;
+        ///6;
+        ///7;
+        ///8;
+        ///9;
+        ///.
+        /// </summary>
+        public static string Task3 {
+            get {
+                return ResourceManager.GetString("Task3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Пусть A = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, а P ˗ это непустое слово. Значит P ˗ это последовательность из десятичных цифр, то есть запись целого неотрицательного числа в десятичной системе. Необходимо получить на ленте запись числа, которое на 1 больше числа P..
+        /// </summary>
+        public static string Task31 {
+            get {
+                return ResourceManager.GetString("Task31", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на 0;1;2;3;
+        ///a;b;c;b;
+        ///
+        /// ;Q1
+        /// ;
+        ///a;
+        ///b;
+        ///c;
+        ///.
+        /// </summary>
+        public static string Task4 {
+            get {
+                return ResourceManager.GetString("Task4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Пусть A = {a, b, c}. Необходимо перенести первый символ непустого слова P в его конец..
+        /// </summary>
+        public static string Task41 {
+            get {
+                return ResourceManager.GetString("Task41", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на 0;1;2;
+        ///a;b;b;
+        ///
+        /// ;Q1
+        /// ;
+        ///a;
+        ///b;
+        ///.
+        /// </summary>
+        public static string Task5 {
+            get {
+                return ResourceManager.GetString("Task5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Пусть A = {a, b}. Необходимо удалить из слова P его второй символ, если такой есть..
+        /// </summary>
+        public static string Task51 {
+            get {
+                return ResourceManager.GetString("Task51", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на 0;1;2;
+        ///b;c;a;
+        ///
+        /// ;Q1
+        /// ;
+        ///a;
+        ///b;
+        ///c;
+        ///.
+        /// </summary>
+        public static string Task6 {
+            get {
+                return ResourceManager.GetString("Task6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Пусть A = {a, b, c}. Если P является непустым словом, то необходимо за его первым символом вставить символ a..
+        /// </summary>
+        public static string Task61 {
+            get {
+                return ResourceManager.GetString("Task61", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на 1;2;3;
+        ///F;F;7;
+        ///
+        /// ;Q1
+        /// ;
+        ///1;
+        ///2;
+        ///0;
+        ///3;
+        ///4;
+        ///5;
+        ///6;
+        ///7;
+        ///8;
+        ///9;
+        ///A;
+        ///B;
+        ///C;
+        ///D;
+        ///E;
+        ///F;
+        ///.
+        /// </summary>
+        public static string Task7 {
+            get {
+                return ResourceManager.GetString("Task7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Пусть A = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F}, а P ˗ это непустое слово. Значит P ˗ это последовательность из шестнадцатиричных цифр. Необходимо получить на ленте запись числа, которое на 9 больше числа P..
+        /// </summary>
+        public static string Task71 {
+            get {
+                return ResourceManager.GetString("Task71", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на 0;1;2;3;4;5;
+        ///a;c;a;b;a;c;
+        ///
+        /// ;Q1
+        /// ;
+        ///c;
+        ///b;
+        ///a;
+        ///.
+        /// </summary>
+        public static string Task8 {
+            get {
+                return ResourceManager.GetString("Task8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Пусть алфавит состоит из следующего набора символов: {a, b, c}. Необходимо удалить из слова  все вхождения символа a, если такие имеются..
+        /// </summary>
+        public static string Task81 {
+            get {
+                return ResourceManager.GetString("Task81", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Byte[].
+        /// </summary>
+        public static byte[] UserGuide {
+            get {
+                object obj = ResourceManager.GetObject("UserGuide", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap w512h5121390846436left512 {
+        public static System.Drawing.Bitmap w512h5121390846436left512 {
             get {
                 object obj = ResourceManager.GetObject("w512h5121390846436left512", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -93,7 +329,7 @@ namespace AlgorithmsExecutorMachineTuring.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap w512h5121390846449right512 {
+        public static System.Drawing.Bitmap w512h5121390846449right512 {
             get {
                 object obj = ResourceManager.GetObject("w512h5121390846449right512", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));

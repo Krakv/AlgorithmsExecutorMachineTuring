@@ -29,7 +29,7 @@ namespace AlgorithmTuringInterface
         private void EditQuantities_FormClosing(object sender, FormClosingEventArgs e)
         {
             Controls.Clear(); // Для избежания удаления таблицы в качестве мусора
-            QuantityStatesForm tablePanel = (QuantityStatesForm) owner.QuantityStates.Controls[0];
+            QuantityStatesForm tablePanel = (QuantityStatesForm)owner.QuantityStates.Controls[0];
             tablePanel.ChangeTable(Data.Actions); // Перерисовка таблицы в форме-владельце
             owner.Enabled = true; // Включение формы-владельца
         }
@@ -66,7 +66,7 @@ namespace AlgorithmTuringInterface
 
         private void SymbolsTxtBx_Validating(object sender, CancelEventArgs e)
         {
-            SymbolsTxtBx.Text = new String(SymbolsTxtBx.Text.Where(c => Char.IsLetter(c) || Char.IsDigit(c)).Distinct().ToArray()); ;
+            SymbolsTxtBx.Text = new String(SymbolsTxtBx.Text.Where(c => Char.IsLetter(c) || Char.IsDigit(c)).Distinct().ToArray());
         }
 
         #endregion RowFuncs

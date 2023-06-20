@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Text;
+using System.Text.RegularExpressions;
+using static System.Windows.Forms.AxHost;
 
 namespace AlgorithmTuringInterface
 {
@@ -120,6 +122,18 @@ namespace AlgorithmTuringInterface
         {
             string filename = "Tasks\\" + TaskName + ".txt";
             return File.ReadAllText(filename);
+        }
+
+        public static bool isCorrectTable(Dictionary<string, List<string>> table)
+        {
+            return true;
+
+        }
+        
+        public static bool isCorrectTape(Dictionary<long, string> tape, string table)
+        {
+            return true;
+
         }
     }
 }

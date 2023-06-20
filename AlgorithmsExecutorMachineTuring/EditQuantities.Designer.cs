@@ -143,7 +143,7 @@ namespace AlgorithmTuringInterface
             Margin = new Padding(4, 3, 4, 3);
             Name = "EditQuantities";
             helpProvider1.SetShowHelp(this, true);
-            Text = "EditQuantities";
+            Text = "Редактирование таблицы состояний";
             FormClosing += EditQuantities_FormClosing;
             Shown += EditQuantities_Shown;
             ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();

@@ -2,6 +2,7 @@
 using System.Text.RegularExpressions;
 using static AlgorithmTuringInterface.Program;
 using AlgorithmsExecutorMachineTuring;
+using System.ComponentModel;
 
 namespace AlgorithmTuringInterface
 {
@@ -16,6 +17,7 @@ namespace AlgorithmTuringInterface
         bool isCreated = false;
         System.Windows.Forms.Timer timer;
         internal AlgorithmExecutor.AlgorithmExecutor executor;
+        internal QuantityStatesForm frm;
 
         public MachineTuring()
         {
@@ -62,6 +64,10 @@ namespace AlgorithmTuringInterface
         {
             PaintQuantitiesStatesForm(); // Прорисовка таблицы состояний
             InitializeTape(); // Прорисовка значений на ленте
+            SymbolsTxtBx.Text = (from DataGridViewRow item in table.Rows
+                                 where item.HeaderCell.Value.ToString() != "_"
+                                 select item.HeaderCell.Value.ToString())
+                                 .ToArray().Aggregate((a, b) => a + b);
         }
 
         private void MachineTuring_FormClosing(object sender, FormClosingEventArgs e)
@@ -135,9 +141,9 @@ namespace AlgorithmTuringInterface
         {
             try
             {
-                Data.Actions.Add("", new List<string> { "<Q2", "" });
-                Data.Actions.Add("0", new List<string> { "1>Q1", "<Q2" });
-                Data.Actions.Add("1", new List<string> { "0>Q1", "<Q2" });
+                Data.Actions.Add("", new List<string> { "", "" });
+                Data.Actions.Add("0", new List<string> { "", "" });
+                Data.Actions.Add("1", new List<string> { "", "" });
             }
             catch
             {
@@ -458,8 +464,16 @@ namespace AlgorithmTuringInterface
             try
             {
                 var objects = Program.ReadFile(path);
-                Data.Actions = (Dictionary<string, List<string>>)objects[0];
-                Data.tape = (Dictionary<long, string>)objects[1];
+                Dictionary<string, List<string>> actions = (Dictionary<string, List<string>>)objects[0];
+                if (!isCorrectTable(actions))
+                {
+                    throw new Exception();
+                }
+                Data.Actions = actions;
+                Dictionary<long, string> tape = (Dictionary<long, string>)objects[1];
+                if (!isCorrectTape(tape, SymbolsTxtBx.Text))
+                    throw new Exception();
+                Data.tape = tape;
                 CreateTable(Data.Actions, ref table);
                 QuantityStatesForm? tablePanel = QuantityStates.Controls[0] as QuantityStatesForm;
                 tablePanel?.ChangeTable(Data.Actions);
@@ -480,7 +494,10 @@ namespace AlgorithmTuringInterface
             try
             {
                 tapePath = Program.FindPathManually();
-                Data.tape = Program.ReadTape(tapePath);
+                Dictionary<long, string> tape = Program.ReadTape(tapePath);
+                if (!isCorrectTape(tape, SymbolsTxtBx.Text))
+                    throw new Exception();
+                Data.tape = tape;
                 InitializeTape();
             }
             catch
@@ -570,7 +587,12 @@ namespace AlgorithmTuringInterface
             try
             {
                 actionsPath = Program.FindPathManually();
-                Data.Actions = Program.ReadActionsFile(actionsPath);
+                Dictionary<string, List<string>> actions = Program.ReadActionsFile(actionsPath);
+                if (!isCorrectTable(actions))
+                {
+                    throw new Exception();
+                }
+                Data.Actions = actions;
                 CreateTable(Data.Actions, ref table);
                 QuantityStatesForm tablePanel = (QuantityStatesForm)QuantityStates.Controls[0];
                 tablePanel.ChangeTable(Data.Actions);
@@ -676,7 +698,8 @@ namespace AlgorithmTuringInterface
 
         private void OpenQuantitiesTableBtn_Click(object sender, EventArgs e)
         {
-            QuantityStatesForm frm = new QuantityStatesForm(Data.Actions, ref chosenIndex, ref state, this) { FormBorderStyle = FormBorderStyle.Sizable };
+            QuantityStatesForm frm = new QuantityStatesForm(Data.Actions, ref chosenIndex, ref state, this, true) { FormBorderStyle = FormBorderStyle.Sizable };
+            this.frm = frm;
             frm.Show();
         }
 
@@ -809,6 +832,36 @@ namespace AlgorithmTuringInterface
 
         private void MachineTuring_Load(object sender, EventArgs e)
         {
+        }
+
+        private void SaveRowsBtn_Click(object sender, EventArgs e)
+        {
+            var rows = from DataGridViewRow row in table.Rows select row;
+            var syms = from DataGridViewRow item in table.Rows select item.HeaderCell.Value?.ToString();
+            var symbols = from sym in SymbolsTxtBx.Text.Trim() select sym.ToString();
+            {
+                foreach (var sym in syms.Except(symbols).ToArray())
+                {
+                    foreach (var item in rows)
+                        if (item.HeaderCell.Value.ToString() == sym && item.HeaderCell.Value.ToString() != "_")
+                        {
+                            table.Rows.Remove(item);
+                            break;
+                        }
+                }
+                foreach (var sym in symbols.Except(from item in rows select item.HeaderCell.Value?.ToString()))
+                {
+                    DataGridViewRow row = new DataGridViewRow() { HeaderCell = new DataGridViewRowHeaderCell() { Value = sym } };
+                    table.Rows.Add(row);
+                }
+            }
+            QuantityStatesForm tablePanel = (QuantityStatesForm)QuantityStates.Controls[0];
+            tablePanel.ChangeTable(Data.Actions); // Перерисовка таблицы в форме-владельце
+        }
+
+        private void SymbolsTxtBx_Validating(object sender, CancelEventArgs e)
+        {
+            SymbolsTxtBx.Text = new String(SymbolsTxtBx.Text.Where(c => Char.IsLetter(c) || Char.IsDigit(c)).Distinct().ToArray());
         }
     }
 }
