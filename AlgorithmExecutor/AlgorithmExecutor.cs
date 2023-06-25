@@ -32,20 +32,32 @@ namespace AlgorithmExecutor
             Regex regex = new Regex(@"\A[\w_]?[><=]Q\d+\z");
             foreach(string item in statesTable.Values.SelectMany(x => x))
             {
-                if (regex.IsMatch(item))
+                if (regex.IsMatch(item) || item.Trim() == "")
                 {
-                    foreach(string key in statesTable.Keys)
+                    if (item.Trim() != "")
                     {
-                        if (key == item[0].ToString())
+                        bool flag = false;
+                        string sym;
+                        if (new Regex(@"[><=]").IsMatch(item[0].ToString()))
+                            sym = "_";
+                        else
+                            sym = item[0].ToString();
+                        foreach (string key in statesTable.Keys)
                         {
-                            int count = statesTable.Values.Max(x => x.Count);
-                            if(Int32.Parse(new Regex(@"Q\d+\z").Matches(item).First().ToString().Substring(1)) <= count)
-                                return true;
+                            if (key == sym)
+                            {
+                                int count = statesTable.Values.Max(x => x.Count);
+                                if (Int32.Parse(new Regex(@"Q\d+\z").Matches(item).First().ToString().Substring(1)) <= count)
+                                    flag = true;
+                            }
                         }
+                        if (!flag)
+                            return false;
                     }
                 }
+                else return false;
             }
-            return false;
+            return true;
         }
 
         public bool NextStep(ref string symbol, out int state, out long chosenIndex)
