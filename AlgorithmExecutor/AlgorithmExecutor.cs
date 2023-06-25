@@ -15,10 +15,6 @@ namespace AlgorithmExecutor
 
         public AlgorithmExecutor(Dictionary<string, List<string>> statesTable, string symbol, int state, long chosenIndex)
         {
-            if (isStatesTableCorrect(statesTable))
-                this.statesTable = statesTable;
-            else
-                throw new ArgumentException($"Wrong structure: {statesTable}");
             this.symbol = symbol;
             this.state = state;
             this.chosenIndex = chosenIndex;
