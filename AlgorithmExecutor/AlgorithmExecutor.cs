@@ -15,6 +15,10 @@ namespace AlgorithmExecutor
 
         public AlgorithmExecutor(Dictionary<string, List<string>> statesTable, string symbol, int state, long chosenIndex)
         {
+            if (isStatesTableCorrect(statesTable))
+                this.statesTable = statesTable;
+            else
+                throw new ArgumentException($"Wrong structure: {statesTable}");
             this.symbol = symbol;
             this.state = state;
             this.chosenIndex = chosenIndex;
@@ -23,6 +27,8 @@ namespace AlgorithmExecutor
 
         private static bool isStatesTableCorrect(Dictionary<string, List<string>> statesTable)
         {
+            if (statesTable == null)
+                return false;
             Regex regex = new Regex(@"\A[\w_]?[><=]Q\d+\z");
             foreach(string item in statesTable.Values.SelectMany(x => x))
             {

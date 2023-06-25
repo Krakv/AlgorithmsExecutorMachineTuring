@@ -1472,13 +1472,13 @@
     <value>TopicId</value>
   </data>
   <data name="SaveFileBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>133, 22</value>
   </data>
   <data name="SaveFileBtn.Text" xml:space="preserve">
     <value>Сохранить</value>
   </data>
   <data name="UploadFileBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>133, 22</value>
   </data>
   <data name="UploadFileBtn.Text" xml:space="preserve">
     <value>Загрузить</value>

@@ -277,18 +277,25 @@ namespace AlgorithmTuringInterface
 
         private void StartBtn_Click(object sender, EventArgs e)
         {
-            NextStepBtn.Enabled = true;
-            PreviousStepBtn.Enabled = true;
-            FinishBtn.Enabled = true;
-            StartBtn.Enabled = false;
-            InitChosenIndexBtn.Enabled = false;
-            File.Enabled = false;
-            TapeFile.Enabled = false;
-            QuantitiesFile.Enabled = false;
-            EditQuantitiesFileBtn.Enabled = false;
-            EditTapeFileBtn.Enabled = false;
-            Tasks.Enabled = false;
-            this.executor = new AlgorithmExecutor.AlgorithmExecutor(Data.Actions, GetSymbol, state, chosenIndex);
+            try
+            {
+                this.executor = new AlgorithmExecutor.AlgorithmExecutor(Data.Actions, GetSymbol, state, chosenIndex);
+                NextStepBtn.Enabled = true;
+                PreviousStepBtn.Enabled = true;
+                FinishBtn.Enabled = true;
+                StartBtn.Enabled = false;
+                InitChosenIndexBtn.Enabled = false;
+                File.Enabled = false;
+                TapeFile.Enabled = false;
+                QuantitiesFile.Enabled = false;
+                EditQuantitiesFileBtn.Enabled = false;
+                EditTapeFileBtn.Enabled = false;
+                Tasks.Enabled = false;
+            }
+            catch
+            {
+                MessageBox.Show("Неверно задана таблица");
+            }
         }
 
         private void FinishBtn_Click(object sender, EventArgs e)
