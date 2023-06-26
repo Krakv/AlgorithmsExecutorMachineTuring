@@ -151,11 +151,11 @@ namespace AlgorithmTuringInterface
             }
         }
 
-        public void InitializeTape()
+        public void InitializeTape(bool isStepChanged = false)
         {
-            if (chosenIndex > shift + 5)
+            if (isStepChanged && chosenIndex > shift + 5)
                 shift = chosenIndex - 4;
-            if (chosenIndex < shift - 5)
+            if (isStepChanged && chosenIndex < shift - 5)
                 shift = chosenIndex + 4;
             tape = Data.tape;
             foreach (TextBox textbox in Tape.Controls)
@@ -358,7 +358,7 @@ namespace AlgorithmTuringInterface
             else
                 tape[this.chosenIndex] = symbol;
             this.chosenIndex = chosenIndex;
-            InitializeTape();
+            InitializeTape(true);
         }
 
         private void PreviousStepBtn_Click(object sender, EventArgs e)
@@ -375,7 +375,7 @@ namespace AlgorithmTuringInterface
             this.state = state;
             this.chosenIndex = chosenIndex;
             tape[this.chosenIndex] = symbol.Replace("_", "");
-            InitializeTape();
+            InitializeTape(true);
         }
 
         #endregion Buttons
