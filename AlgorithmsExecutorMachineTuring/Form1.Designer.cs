@@ -830,7 +830,7 @@ namespace AlgorithmTuringInterface
         private HelpProvider helpProvider1;
         public Button CloseTaskBoxBtn;
         public TextBox TaskBox;
-        private TextBox SymbolsTxtBx;
+        public TextBox SymbolsTxtBx;
         private Label label1;
         private Button SaveRowsBtn;
     }

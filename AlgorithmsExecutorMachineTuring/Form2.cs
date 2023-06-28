@@ -56,6 +56,10 @@ namespace AlgorithmTuringInterface
             if (!isSeparated && owner.frm != null)
                 owner.frm.ChangeTable(actions);
             this.actions = actions;
+            owner.SymbolsTxtBx.Text = (from  item in actions.Keys
+                                 where item.ToString() != "_"
+                                 select item.ToString())
+                                 .ToArray().Aggregate((a, b) => a + b);
             Controls.Clear();
             MakeQuantitiesTable();
         }

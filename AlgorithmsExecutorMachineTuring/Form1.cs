@@ -280,11 +280,11 @@ namespace AlgorithmTuringInterface
             try
             {
                 this.executor = new AlgorithmExecutor.AlgorithmExecutor(Data.Actions, GetSymbol, state, chosenIndex);
-                var alphabet = from item in SymbolsTxtBx.Text
-                               select item.ToString();
+                var alphabet = from DataGridViewRow item in table.Rows
+                               select item.HeaderCell.Value.ToString();
                 var tapeAlphabet = from item in tape.Values
                                    select item;
-                if (tapeAlphabet.Except(alphabet).Count() > 0)
+                if (tapeAlphabet.Except(alphabet).Count() > 1)
                     throw new Exception("Wrong tape alphabet");
                 NextStepBtn.Enabled = true;
                 PreviousStepBtn.Enabled = true;
@@ -337,8 +337,11 @@ namespace AlgorithmTuringInterface
             {
                 if (StartBtn.Enabled)
                     StartBtn_Click(sender, e);
-                StartNFinishBtn.Text = "Приостановить";
-                timer.Start();
+                if (!StartBtn.Enabled)
+                {
+                    StartNFinishBtn.Text = "Приостановить";
+                    timer.Start();
+                }
             }
             else
             {
@@ -854,7 +857,7 @@ namespace AlgorithmTuringInterface
         {
         }
 
-        private void SaveRowsBtn_Click(object sender, EventArgs e)
+        public void SaveRowsBtn_Click(object sender, EventArgs e)
         {
             var rows = from DataGridViewRow row in table.Rows select row;
             var syms = from DataGridViewRow item in table.Rows select item.HeaderCell.Value?.ToString();
