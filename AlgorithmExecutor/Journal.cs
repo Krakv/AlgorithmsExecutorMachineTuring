@@ -2,7 +2,7 @@
 
 namespace AlgorithmExecutor
 {
-    internal class Journal
+    public class Journal
     {
 
         public static List<string> journal = new List<string>();

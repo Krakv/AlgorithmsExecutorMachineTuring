@@ -280,6 +280,12 @@ namespace AlgorithmTuringInterface
             try
             {
                 this.executor = new AlgorithmExecutor.AlgorithmExecutor(Data.Actions, GetSymbol, state, chosenIndex);
+                var alphabet = from item in SymbolsTxtBx.Text
+                               select item.ToString();
+                var tapeAlphabet = from item in tape.Values
+                                   select item;
+                if (tapeAlphabet.Except(alphabet).Count() > 0)
+                    throw new Exception("Wrong tape alphabet");
                 NextStepBtn.Enabled = true;
                 PreviousStepBtn.Enabled = true;
                 FinishBtn.Enabled = true;
@@ -292,9 +298,14 @@ namespace AlgorithmTuringInterface
                 EditTapeFileBtn.Enabled = false;
                 Tasks.Enabled = false;
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Неверно задана таблица");
+                if (ex.Message == $"Wrong structure: {Data.Actions}")
+                    MessageBox.Show("Неверно задана таблица");
+                else if (ex.Message == "Wrong tape alphabet")
+                    MessageBox.Show("Неверно задана лента");
+                else
+                    MessageBox.Show("Ошибка");
             }
         }
 
@@ -304,6 +315,7 @@ namespace AlgorithmTuringInterface
             PreviousStepBtn.Enabled = false;
             FinishBtn.Enabled = false;
             executor = null;
+            AlgorithmExecutor.Journal.journal.Clear();
             state = 1;
             chosenIndex = 0;
             InitializeTape();
@@ -618,6 +630,7 @@ namespace AlgorithmTuringInterface
 
         private void EditQuantitiesFile_Click(object sender, EventArgs e)
         {
+            table.Size = new Size(988, 600);
             EditQuantities editQuantities = new EditQuantities(this, table);
             editQuantities.Show();
         }
@@ -740,7 +753,7 @@ namespace AlgorithmTuringInterface
         {
             Regex regex = new Regex(@"\A[\w_]?[><=]Q\d+\z");
             string? text = table[e.ColumnIndex, e.RowIndex].Value?.ToString();
-            if (text == null)
+            if (text == null || text == "")
             {
                 Data.Actions[table.Rows[e.RowIndex].HeaderCell.Value.ToString()][e.ColumnIndex] = "";
                 return;
